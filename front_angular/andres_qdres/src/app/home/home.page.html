@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title slot="start"> Usuarios </ion-title>
+    <ion-button slot="end"> Crear Usuario </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <ion-list>
+    <ion-item *ngFor="let usuario of usuarios">
+      <ion-label id="credenciales">
+        <h2>{{ usuario.nombreUsuario }} {{ usuario.apellidoUsuario }}</h2>
+        <div>
+          <span>ID: {{ usuario.idUsuario }}</span>
+          <span>Rol: {{ usuario.rol }}</span>
+        </div>
+      </ion-label>
+      <ion-label id="contraseña">
+        <ng-container *ngIf="usuario.mostrarContrasena === true">
+          <ion-button (click)="SeePassword(usuario)">
+            Ocultar contraseña
+          </ion-button>
+          Contraseña: {{ usuario.contrasenaUsuario }}
+        </ng-container>
+        <ng-container *ngIf="usuario.mostrarContrasena === false">
+          <ion-button (click)="SeePassword(usuario)">
+            Ver contraseña
+          </ion-button>
+          Contraseña: {{ '*'.repeat(usuario.contrasenaUsuario.length) }}
+        </ng-container>
+      </ion-label>
+      <ion-label id="options">
+        <ion-button (click)="editUser(usuario)"> <ion-icon name="create-outline"></ion-icon> </ion-button>
+        <ion-button> <ion-icon name="trash-outline"></ion-icon> </ion-button>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  
+</ion-content>
