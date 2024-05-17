@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { compileNgModule } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
@@ -35,5 +36,11 @@ export class EditFormPage implements OnInit {
 
   back(){
     this.router.navigate(['/home']);
+  }
+
+  imprimir() {
+    console.log('Nombre:', this.nombre);
+    console.log('Apellido:', this.apellido);
+    console.log('Contraseña:', this.contrasena);
   }
 }

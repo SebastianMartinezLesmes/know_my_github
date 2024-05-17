@@ -1,3 +1,10 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title slot="start"> Formulario </ion-title>
+    <ion-button slot="end" (click)="back()"> Volver </ion-button>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content [fullscreen]="true">
   <ion-card>
     <ion-card-header>
@@ -7,16 +14,19 @@
       <form>
         <ion-item>
           <ion-label position="floating">Nombre:</ion-label>
-          <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+          <ion-input type="text" [(ngModel)]="nombre" name="nombre"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Apellido:</ion-label>
-          <ion-input type="text" [(ngModel)]="apellido"></ion-input>
+          <ion-input type="text" [(ngModel)]="apellido" name="apellido"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Contraseña:</ion-label>
-          <ion-input type="password" [(ngModel)]="contrasena"></ion-input>
+          <ion-input type="password" [(ngModel)]="contrasena" name="contrasena"></ion-input>
         </ion-item>
+        <ion-button (click)="imprimir()">
+          imprimir
+        </ion-button>
       </form>
     </ion-card-content>
   </ion-card>

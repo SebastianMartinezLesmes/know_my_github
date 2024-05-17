@@ -38,4 +38,7 @@ export class HomePage {
     console.log(usuario);
   };
   
+  createUser() {
+    this.router.navigate(['/edit-form']);
+  };
 }
