@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-edit-form',
@@ -9,9 +9,9 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./edit-form.page.scss'],
 })
 export class EditFormPage implements OnInit {
-  info: any = []; // Define una propiedad para almacenar los datos del usuario
+  info: any = [];
   job: any = '';
-  nombre: string = 'Pato';
+  nombre: string = '';
   apellido: string = '';
   contrasena: string = '';
   rol = '';
@@ -20,12 +20,16 @@ export class EditFormPage implements OnInit {
     private router: Router, 
     private route: ActivatedRoute,
     private http: HttpClient, 
-    private alertController: AlertController
+    private alertController: AlertController,
+    private loadingController: LoadingController
   ) {}
 
   ngOnInit() {
-    // Accede a los datos pasados a través del estado de la navegación
     this.job = this.route.snapshot.paramMap.get('job')
+    console.log(this.job)
+    if (this.job === null || this.job === ''){
+      this.router.navigate(['/home']);
+    }
     this.info = this.route.snapshot.paramMap.get('data');
     if (this.info) {
       this.nombre = this.info.nombreUsuario;
@@ -109,6 +113,7 @@ export class EditFormPage implements OnInit {
     }
   }
 
+  // Controlador de los mensajes de alerta
   async presentAlert(header: string, message: string) {
     const alert = await this.alertController.create({
       header,
@@ -120,11 +125,27 @@ export class EditFormPage implements OnInit {
     await alert.present();
   }
 
-  selectJob() {
-    if (this.job === 'edit') {
-      this.editarUsuario();
-    } else {
-      this.crearUsuario();
+  // Controlador de las ventanas de carga
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: 'Cargando...',
+      spinner: 'circular', // tipo de animación
+      mode: 'ios'
+    });
+    await loading.present();
+    return loading;
+  }
+
+  async selectJob() {
+    const loading = await this.presentLoading();
+    try {
+      if (this.job === 'edit') {
+        await this.editarUsuario();
+      } else {
+        await this.crearUsuario();
+      }
+    } finally {
+      loading.dismiss();
     }
   }
 }
