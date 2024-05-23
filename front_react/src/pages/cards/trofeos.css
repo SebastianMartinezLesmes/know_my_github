@@ -1,0 +1,100 @@
+.gallery {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 40px;
+  padding: 20px;
+  height: 95.5%;
+}
+
+.category-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.category-events {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.trophy-card {
+  transition: all 3s;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 20%;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+/* .trophy-avatar {
+  height: 100%;
+  width: 22%;
+} */
+
+/* .trophy-avatar #img1 {
+  padding: 10px;
+  background: red;
+} */
+
+.trophy-avatar #img2 {
+  width: 0;
+  height: 0;
+}
+
+.trophy-title {
+  background: transparent;
+  font-size: 200%;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.815);
+}
+
+#content_card {
+  display: flex;
+  flex-direction: column;
+}
+
+.winner-label {
+  font-size: 0;
+  color: rgba(0, 0, 0, 0.815);
+  margin-top: 5px;
+}
+
+.trophy-card:hover {
+  width: 80%;
+  .winner-label{
+    font-size: 490%;
+  }
+  .trophy-title{
+    font-size: 0;
+    background: none;
+  }
+
+  .trophy-avatar{
+    height: 100%;
+    width: 22%;
+  }
+  
+  .trophy-avatar #img1 {
+    width: 0;
+    height: 0;
+  }
+
+  .trophy-avatar #img2 {
+    border: 4px solid gold; /* Borde dorado de 4px */
+    background-color: rgba(192, 192, 192, 0.301);
+    width: 150%;
+    height: 100%;
+  }
+}

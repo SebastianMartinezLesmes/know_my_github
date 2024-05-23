@@ -1,0 +1,11 @@
+#buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    ion-button{
+        background: rgb(0, 162, 255);
+        border-radius: 15px;
+        width: 100%;
+        margin: 10px;
+    }
+}

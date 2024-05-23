@@ -1,0 +1,44 @@
+ion-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+#nameElement{
+    font-size: 0px;
+}
+
+ion-avatar {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+}
+
+ion-label{
+    margin-right: 8px;
+}
+
+ion-col:hover{
+    ion-avatar{
+        margin-right: 8px;
+    }
+    #nameElement{
+        font-size: 20px;
+        animation: moverderecha 2s forwards;
+    }
+}
+  
+@keyframes moverderecha {
+    0% {
+      transform: translateX(-80%); /* Inicialmente, el label está en su posición original */
+      opacity: 0;
+    }
+    20%{
+        opacity: 0;
+    }
+    100% {
+      transform: translateX(100%); /* Mover el label completamente hacia la derecha */
+      opacity: 1;
+    }
+}

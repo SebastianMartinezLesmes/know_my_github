@@ -1,0 +1,70 @@
+:root {
+    --gradient-start: rgba(89, 151, 245, 0.678);
+    --gradient-end: rgba(0, 110, 255, 0.808);
+    --title-bg: rgba(0, 0, 255, 0.295);
+    --title-border: solid 2px white;
+    --white: white;
+}
+
+#event {
+    display: flex;
+}
+
+#event img {
+    width: 40%;
+}
+
+#event > div {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+#event > div > div {
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+    height: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#event  div > div > div {
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    margin: 3%;
+}
+
+ion-card-title {
+    padding: 10px;
+    margin: 11px;
+    border-radius: 10px;
+    border: var(--title-border);
+    background-color: var(--title-bg);
+    text-align: center;
+    font-size: 260%;
+}
+
+ion-card-subtitle {
+    font-size: 190%;
+    color: var(--white);
+}
+
+ion-label {
+    text-align: center;
+    font-size: 250%;
+    color: var(--white);
+}
+
+#event span {
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+    color: var(--white);
+    font-size: 30px;
+    height: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 3%;
+}
