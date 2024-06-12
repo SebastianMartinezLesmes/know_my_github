@@ -1,0 +1,49 @@
+img{
+    height: 100px;
+    width: 80px;
+}
+
+#card_back{
+    width: 33;
+    ion-card-content{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        ion-icon{
+            font-size: 30px;
+        }
+    }
+}
+
+#card_front{
+    width: 33;
+    ion-card-content{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        ion-icon{
+            font-size: 30px;
+        }
+    }
+}
+
+#card_db{
+    width: 33;
+    ion-card-content{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        ion-icon{
+            font-size: 30px;
+        }
+    }
+}
+
+#footer-icons{
+    display: flex;
+    justify-content: space-evenly;
+    ion-icon{
+        font-size: 50px;
+        cursor: pointer;
+    }
+}
