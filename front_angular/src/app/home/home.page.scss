@@ -49,9 +49,14 @@ img{
 }
 
 .button-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     width: 50%;
+    height: 500px;
 }
 
 #graficas{
     width: 50%;
+    height: 500px;
 }
