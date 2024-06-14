@@ -6,77 +6,116 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div id="portfolio-container">
-    <img id="profile-img" src="../../assets/programer.jpg" alt="Programer img">
-    
-    <div class="section">
-      <ion-accordion-group>
-        <ion-accordion>
-          <ion-item slot="header">
-            <ion-label>¿Quién soy?</ion-label>
-          </ion-item>
-          <div class="ion-padding" slot="content">
-            <p>
-              Soy un programador frontend junior con 1 año de experiencia en el desarrollo web. Tengo una sólida comprensión y experiencia en lenguajes como HTML5, CSS3, JavaScript y TypeScript. He trabajado con frameworks populares como React.js, Angular, y Vue.js, 
-              además de tener experiencia con el framework Ionic para el desarrollo de aplicaciones móviles híbridas. Apasionado de los desafíos y al aprendizaje continuo, siempre buscando mejorar mis habilidades.
-            </p>
-          </div>
-        </ion-accordion>
-      </ion-accordion-group>
+  <div id="portfolio-container">    
+    <div id="arriba">
+      <img id="profile-img" src="../../assets/programer.jpg" alt="Programer img">
+      <div>
+        <h1>Juan Sebastian Martinez Lesmes</h1>
+        <h4>Colombiano</h4>
+        <h4>Analista desarrollador de software</h4>
+      </div>
     </div>
 
-    <div class="section">
-      <ion-accordion-group>
-        <ion-accordion>
-          <ion-item slot="header">
-            <ion-label>Estudios</ion-label>
-          </ion-item>
-          <ion-item slot="content">Primaria: Marie Curie 2010 - 2015</ion-item>
-          <ion-item slot="content">Secundaria: Casablanca 2016 - 2021</ion-item>
-          <ion-item slot="content">Educación Superior: Sena (Tecnólogo: análisis y desarrollo de software) 2022 - 2024</ion-item>
-        </ion-accordion>
-      </ion-accordion-group>
-    </div>
-
-    <div class="section">
-      <ion-accordion-group>
-        <ion-accordion>
-          <ion-item slot="header">
-            <ion-label>Experiencia</ion-label>
-          </ion-item>
-          <div class="ion-padding" slot="content">
-            <p>Sena: 2022 - 2023</p>
-            <p>Grupo-ASD: 2023 - 2024</p>
-          </div>
-        </ion-accordion>
-      </ion-accordion-group>
-    </div>
-
-    <div class="section">
-      <ion-accordion-group>
-        <ion-accordion>
-          <ion-item slot="header">
-            <ion-label>Lenguajes de programación que manejo</ion-label>
-          </ion-item>
-          <div class="ion-padding" slot="content">
-
-            <ion-item lines="none">
-              <div class="button-group">
-                <ion-button expand="block">Backend lenguajes</ion-button>
-                <ion-button expand="block">Frontend lenguajes</ion-button>
-                <ion-button expand="block">Bases de Datos lenguajes</ion-button>
-              </div>
+    <div id="medio">
+      <div class="section">
+        <ion-accordion-group>
+          <ion-accordion>
+            <ion-item slot="header">
+              <ion-label>¿Quién soy?</ion-label>
             </ion-item>
+            <div class="ion-padding" slot="content">
+              <p>
+                Soy un analista y desarrollador de software con 2 años de experiencia en el desarrollo frontend
+                y 1 año en el backend, así como en bases de datos relacionales y no relacionales. 
+                Me apasiona el aprendizaje continuo, enfrentar nuevos retos y resolver acertijos mentales.
+              </p>
+            </div>
+          </ion-accordion>
+        </ion-accordion-group>
+      </div>
 
-            <!-- <app-backend-chart></app-backend-chart>
-            <app-frontend-chart></app-frontend-chart>
-            <app-database-chart></app-database-chart> -->
+      <div class="section">
+        <ion-accordion-group>
+          <ion-accordion>
+            <ion-item slot="header">
+              <ion-label>Hobbys</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content">
+              <ol id="lista_hobby">
+                <li>Puzzles</li>
+                <li>Escuchar musica</li>
+                <li>Jugar videojuegos</li>
+                <li>Ver peliculas</li>
+              </ol>
+            </div>
+          </ion-accordion>
+        </ion-accordion-group>
+      </div>
+  
+      <div class="section">
+        <ion-accordion-group>
+          <ion-accordion>
+            <ion-item slot="header">
+              <ion-label>Estudios</ion-label>
+            </ion-item>
+            <div slot="content">
+              <ion-item>Primaria: Marie Curie 2010 - 2015</ion-item>
+              <ion-item>Secundaria: Casablanca 2016 - 2021</ion-item>
+              <ion-item>Educación Superior: Sena (Tecnólogo: análisis y desarrollo de software) 2022 - 2024</ion-item>
+            </div>
+          </ion-accordion>
+        </ion-accordion-group>
+      </div>
+  
+      <div class="section">
+        <ion-accordion-group>
+          <ion-accordion>
+            <ion-item slot="header">
+              <ion-label>Experiencia</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content">
+              <p>Sena: 2022 - 2023</p>
+              <p>Grupo-ASD: 2023 - 2024</p>
+            </div>
+          </ion-accordion>
+        </ion-accordion-group>
+      </div>
+  
+      <div class="section">
+        <ion-accordion-group>
+          <ion-accordion>
+            <ion-item slot="header">
+              <ion-label>Lenguajes de programación que manejo</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content">
+  
+              <ion-item lines="none">
+                <div class="button-group">
+                  <ion-button expand="block" (click)="graphicfront()">Frontend lenguajes</ion-button>
+                  <ion-button expand="block" (click)="graphicBack()">Backend lenguajes</ion-button>
+                  <ion-button expand="block" (click)="graphicdataBase()">Bases de Datos lenguajes</ion-button>
 
-          </div>
-        </ion-accordion>
-      </ion-accordion-group>
+                  <ion-item>
+                    <h1>Grafica de {{graphic}} :</h1>
+                  </ion-item>
+                </div>
+                <ion-card id="graficas">
+                    <app-frontend-graphic-component *ngIf="graphic === 'front'"></app-frontend-graphic-component>
+                    <app-backend-graphic-component *ngIf="graphic === 'back'"></app-backend-graphic-component>
+                    <app-database-graphic-component *ngIf="graphic === 'database'"></app-database-graphic-component>
+
+                </ion-card>
+              </ion-item>
+  
+            </div>
+          </ion-accordion>
+        </ion-accordion-group>
+      </div>
     </div>
 
+    <div id="abajo">
+      abajo
+    </div>
   </div>
 </ion-content>
 
