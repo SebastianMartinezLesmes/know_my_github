@@ -9,4 +9,16 @@ export class HomePage {
 
   constructor() {}
 
+  graphic: string = 'front';
+
+  graphicfront(){
+    this.graphic = 'front';
+  }
+  graphicBack(){
+    this.graphic = 'back';
+  }
+  graphicdataBase(){
+    this.graphic = 'database';
+  }
+
 }

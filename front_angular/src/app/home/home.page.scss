@@ -1,7 +1,15 @@
-img{
-    height: 100px;
-    width: 80px;
+#arriba{
+    display: flex;
+    align-items: center;
+    img{
+        height: 30%;
+        width: 20%;
+    }
+    div{
+        margin-left: 18%;
+    }
 }
+
 
 #card_back{
     width: 33;
@@ -54,9 +62,18 @@ img{
     justify-content: space-evenly;
     width: 50%;
     height: 500px;
+    ion-button{
+        height: 50px;
+    }
 }
 
 #graficas{
     width: 50%;
     height: 500px;
+}
+
+#lista_hobby{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }

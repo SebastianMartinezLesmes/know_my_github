@@ -27,8 +27,8 @@ export class FrontendGraphicComponentComponent implements AfterViewInit {
         data: {
           labels: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Angular', 'React', 'Vue'],
           datasets: [{
-            label: 'Lenguajes',
-            data: [65, 59, 80, 81, 56, 55, 40],
+            label: 'Años de experiencia',
+            data: [2, 2, 1, 2, 2, 2, 0.2],
             backgroundColor: [
               'rgba(240, 113, 29, 0.39)',
               'rgba(54, 162, 235, 0.2)',
@@ -62,4 +62,18 @@ export class FrontendGraphicComponentComponent implements AfterViewInit {
       this.barChart = new Chart(ctx, config);
     }
   }
+
+  developer_nvl = [
+    "Intern (Becario/Practicante)",
+    "Junior Developer (Desarrollador Junior)",
+    "Mid-Level Developer (Desarrollador Intermedio)",
+    "Senior Developer (Desarrollador Senior)",
+    "Lead Developer / Tech Lead (Líder Técnico)",
+    "Principal Developer / Staff Engineer (Desarrollador Principal)",
+    "Engineering Manager (Gerente de Ingeniería)",
+    "Director of Engineering (Director de Ingeniería)",
+    "VP of Engineering (Vicepresidente de Ingeniería)",
+    "CTO (Chief Technology Officer)"
+  ]
+
 }

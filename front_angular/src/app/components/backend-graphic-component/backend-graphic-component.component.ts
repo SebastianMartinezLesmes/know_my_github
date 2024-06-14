@@ -25,19 +25,23 @@ export class BackendGraphicComponentComponent implements AfterViewInit {
       const config: ChartConfiguration<'bar'> = {
         type: 'bar',
         data: {
-          labels: ['Python', 'javaScript', 'PHP'],
+          labels: ['Python', 'JavaScript', 'PHP', 'Express', 'FastAPI'], 
           datasets: [{
-            label: 'Lenguajes',
-            data: [65, 59, 80, 81, 56, 55, 40],
+            label: 'Años de experiencia',
+            data: [1.5, 1, 0.3, 1, 1],
             backgroundColor: [
-              'rgba(235, 209, 97, 0.39)',
+              'rgba(226, 223, 63, 0.2)',
               'rgba(255, 206, 86, 0.2)',
               'rgba(54, 162, 235, 0.2)',
+              'rgba(121, 121, 121, 0.2)',
+              'rgba(0, 145,131, 0.2)', 
             ],
             borderColor: [
-              'rgb(217, 255, 0)',
+              'rgb(226, 223, 63)',
               'rgba(255, 206, 86, 1)',
               'rgba(54, 162, 235, 1)',
+              'rgb(187, 181, 181)',
+              'rgb(0, 145,131)',
             ],
             borderWidth: 1
           }]

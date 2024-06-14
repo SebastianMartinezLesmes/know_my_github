@@ -27,11 +27,11 @@ export class DatabaseGraphicComponentComponent implements AfterViewInit {
         data: {
           labels: ['MySQL', 'MongoDB',],
           datasets: [{
-            label: 'Lenguajes',
-            data: [65, 59, 80, 81, 56, 55, 40],
+            label: 'Años de experiencia',
+            data: [1.5, 2,],
             backgroundColor: [
-              'rgba(28, 146, 214, 0.39)',
-              'rgba(54, 235, 69, 0.33)',
+              'rgba(0, 153, 255, 0.2)',
+              'rgba(30, 255, 0, 0.2)',
             ],
             borderColor: [
               'rgb(0, 153, 255)',
