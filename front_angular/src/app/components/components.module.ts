@@ -23,7 +23,7 @@ import { EchartsComponent } from "./echarts/echarts.component";
     ],
     imports: [
         CommonModule,
-        IonicModule, // Include IonicModule here
+        IonicModule,
     ]
 })
 export class ComponentsModule {}
