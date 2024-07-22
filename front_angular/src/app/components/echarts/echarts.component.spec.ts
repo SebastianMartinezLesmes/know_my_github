@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { DatabaseGraphicComponentComponent } from './database-graphic-component.component';
+import { EchartsComponent } from './echarts.component';
 
-describe('DatabaseGraphicComponentComponent', () => {
-  let component: DatabaseGraphicComponentComponent;
-  let fixture: ComponentFixture<DatabaseGraphicComponentComponent>;
+describe('EchartsComponent', () => {
+  let component: EchartsComponent;
+  let fixture: ComponentFixture<EchartsComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ DatabaseGraphicComponentComponent ],
+      declarations: [ EchartsComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(DatabaseGraphicComponentComponent);
+    fixture = TestBed.createComponent(EchartsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
