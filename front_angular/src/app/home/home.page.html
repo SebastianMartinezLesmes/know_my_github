@@ -6,10 +6,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div id="portfolio-container">    
+  <div id="portfolio-container">
     <div id="arriba">
       <img id="profile-img" src="../../assets/programer.jpg" alt="Programer img">
-      <div>
+      <div id="profile-info">
         <h1>Juan Sebastian Martinez Lesmes</h1>
         <h4>Colombiano</h4>
         <h4>Analista desarrollador de software</h4>
@@ -43,15 +43,15 @@
             <div class="ion-padding" slot="content">
               <ol id="lista_hobby">
                 <li>Puzzles</li>
-                <li>Escuchar musica</li>
+                <li>Escuchar música</li>
                 <li>Jugar videojuegos</li>
-                <li>Ver peliculas</li>
+                <li>Ver películas</li>
               </ol>
             </div>
           </ion-accordion>
         </ion-accordion-group>
       </div>
-  
+
       <div class="section">
         <ion-accordion-group>
           <ion-accordion>
@@ -66,12 +66,12 @@
           </ion-accordion>
         </ion-accordion-group>
       </div>
-  
+
       <div class="section">
         <ion-accordion-group>
           <ion-accordion>
             <ion-item slot="header">
-              <ion-label>Experiencia</ion-label>
+              <ion-label><h3> Experiencia </h3></ion-label>
             </ion-item>
             <div class="ion-padding" slot="content">
               <p>Sena: 2022 - 2023</p>
@@ -80,33 +80,27 @@
           </ion-accordion>
         </ion-accordion-group>
       </div>
-  
+
       <div class="section">
         <ion-accordion-group>
           <ion-accordion>
             <ion-item slot="header">
-              <ion-label>Lenguajes de programación que manejo</ion-label>
+              <ion-label><h3> Lenguajes de programación que manejo </h3></ion-label>
             </ion-item>
             <div class="ion-padding" slot="content">
-  
               <ion-item lines="none">
                 <div class="button-group">
-                  <ion-button expand="block" (click)="graphicfront()">Frontend lenguajes</ion-button>
-                  <ion-button expand="block" (click)="graphicBack()">Backend lenguajes</ion-button>
-                  <ion-button expand="block" (click)="graphicdataBase()">Bases de Datos lenguajes</ion-button>
-
-                  <ion-item>
-                    <h1>Grafica de {{graphic}} :</h1>
-                  </ion-item>
+                  <ion-button (click)="graphicfront()">Frontend lenguajes</ion-button>
+                  <ion-button (click)="graphicBack()">Backend lenguajes</ion-button>
+                  <ion-button (click)="graphicdataBase()">Bases de Datos lenguajes</ion-button>
                 </div>
-                <ion-card id="graficas">
-                    <app-frontend-graphic-component *ngIf="graphic === 'front'"></app-frontend-graphic-component>
-                    <app-backend-graphic-component *ngIf="graphic === 'back'"></app-backend-graphic-component>
-                    <app-database-graphic-component *ngIf="graphic === 'database'"></app-database-graphic-component>
-
-                </ion-card>
               </ion-item>
-  
+              <ion-card id="graficas">
+                <h3>Gráfica de {{graphic}} :</h3>
+                <app-frontend-graphic-component *ngIf="graphic === 'front'"></app-frontend-graphic-component>
+                <app-backend-graphic-component *ngIf="graphic === 'back'"></app-backend-graphic-component>
+                <app-database-graphic-component *ngIf="graphic === 'database'"></app-database-graphic-component>
+              </ion-card>
             </div>
           </ion-accordion>
         </ion-accordion-group>
