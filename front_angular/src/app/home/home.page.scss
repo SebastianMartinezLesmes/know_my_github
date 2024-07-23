@@ -53,8 +53,11 @@
 
 /* Sección inferior */
 #abajo {
+    background: red;
     flex: 1;
-    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 /* Pie de página */
@@ -65,13 +68,14 @@ ion-footer {
 
 #footer-icons {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-evenly;
     gap: 1rem;
 }
 
 #footer-icons ion-icon {
     font-size: 1.5rem;
-    color: #333;
+    color: white;
 }
 
 /* Media Queries */
@@ -81,12 +85,17 @@ ion-footer {
         height: 120px;
     }
 
-    #medio, #abajo {
+    #medio {
         padding: 0.75rem;
     }
 
-    #footer-icons ion-icon {
+    #footer-icons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
         font-size: 1.3rem;
+        gap: 1rem;
+        color: white;
     }
 }
 
@@ -101,11 +110,14 @@ ion-footer {
     }
 
     #footer-icons {
-        flex-direction: column;
-        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 1rem;
     }
 
     #footer-icons ion-icon {
+        color: white;
         font-size: 1.2rem;
     }
 }
@@ -114,6 +126,4 @@ ion-footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    width: 100%;
-    height: 100%;
 }
