@@ -1,63 +1,25 @@
-/* src/app/home/home.page.scss */
-
-/* Contenedor principal */
-#portfolio-container {
+/*arriba*/
+#arriba{
     display: flex;
-    flex-direction: column;
-    height: 100%;
-    padding: 1rem;
-    box-sizing: border-box;
+    flex-direction: row;
 }
 
-/* Sección superior */
-#arriba {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 1.5rem;
-}
-
-#profile-img {
-    width: 150px;
-    height: 150px;
+#profile_img{
+    width: 30%;
     border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 1rem;
 }
 
-/* Información del perfil */
-#profile-info h1, #profile-info h4 {
-    margin: 0.25rem 0;
-}
-
-/* Sección media */
-#medio {
-    flex: 1;
-    padding: 1rem;
-}
-
-.section {
-    margin-bottom: 1.5rem;
-}
-
-#lista_hobby {
-    list-style-type: disc;
-    padding-left: 1.5rem;
-}
-
-/* Gráficas */
-#graficas {
-    margin-top: 1.5rem;
-}
-
-/* Sección inferior */
-#abajo {
-    background: red;
-    flex: 1;
+#profile_info{
+    background: linear-gradient(to right, transparent, rgba(255, 0, 0, 0.494));
+    border-radius: 25px;
+    margin: 3%;
+    width: 70%;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    text-align: center;
+    flex-wrap: wrap;
 }
 
 /* Pie de página */
@@ -126,4 +88,7 @@ ion-footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    ion-button{
+        flex: 1;
+    }
 }

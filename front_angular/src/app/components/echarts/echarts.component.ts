@@ -32,6 +32,9 @@ export class EchartsComponent implements AfterViewInit {
     const option = {
       title: {
         text: 'Mapa de Colombia',
+        textStyle: {
+          color: 'white' // Cambia el color del texto aquí
+        }
       },
       tooltip: {},
       series: [
