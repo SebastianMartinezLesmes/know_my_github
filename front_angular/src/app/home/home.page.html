@@ -11,7 +11,7 @@
       <img id="profile_img" src="../../assets/programer.jpg" alt="Programer img">
       <div id="profile_info">
         <h1>Juan Sebastian Martinez Lesmes</h1>
-        <h4>Analista desarrollador de software</h4>
+        <h4>Analista y desarrollador de software</h4>
       </div>
     </div>
 
@@ -22,12 +22,14 @@
             <ion-item slot="header">
               <ion-label>¿Quién soy?</ion-label>
             </ion-item>
-            <div class="ion-padding" slot="content">
+            <div id="content_presentation" slot="content">
               <p>
-                Soy un analista y desarrollador de software con 2 años de experiencia en el desarrollo frontend
-                y 1 año en el backend, así como en bases de datos relacionales y no relacionales. 
-                Me apasiona el aprendizaje continuo, enfrentar nuevos retos y resolver acertijos mentales.
+                Soy un analista y desarrollador de software con 2 años de experiencia en desarrollo frontend, utilizando frameworks como Ionic, AngularJS y ReactJS, así como lenguajes como HTML, CSS, JavaScript y TypeScript. <br>
+                Además, cuento con 1 año de experiencia en desarrollo backend, trabajando con frameworks como FastAPI y Express, y lenguajes como JavaScript y Python. También tengo experiencia en bases de datos relacionales como MySQL y no relacionales como MongoDB. <br>
+                Me apasiona el aprendizaje continuo, enfrentar nuevos retos y resolver acertijos mentales. <br>
+                Colombiano con español nativo he ingles basico.
               </p>
+              <app-echarts></app-echarts>
             </div>
           </ion-accordion>
         </ion-accordion-group>
@@ -86,15 +88,13 @@
             <ion-item slot="header">
               <ion-label><h3> Lenguajes de programación que manejo </h3></ion-label>
             </ion-item>
-            <div class="ion-padding" slot="content">
-              <ion-item lines="none">
-                <div class="button-group">
-                  <ion-button (click)="graphicfront()">Frontend lenguajes</ion-button>
-                  <ion-button (click)="graphicBack()">Backend lenguajes</ion-button>
-                  <ion-button (click)="graphicdataBase()">Bases de Datos lenguajes</ion-button>
-                </div>
-              </ion-item>
-              <ion-card id="graficas">
+            <div class="ion-padding" slot="content" id="content_graphics">
+              <div lines="none" id="button-group">
+                <ion-button (click)="graphicfront()">Frontend lenguajes</ion-button>
+                <ion-button (click)="graphicBack()">Backend lenguajes</ion-button>
+                <ion-button (click)="graphicdataBase()">Databases lenguajes</ion-button>
+              </div>
+              <ion-card id="graphics">
                 <h3>Gráfica de {{graphic}} :</h3>
                 <app-frontend-graphic-component *ngIf="graphic === 'front'"></app-frontend-graphic-component>
                 <app-backend-graphic-component *ngIf="graphic === 'back'"></app-backend-graphic-component>
@@ -107,7 +107,7 @@
     </div>
 
     <div id="abajo">
-      <app-echarts></app-echarts>
+      abajo
     </div>
 </ion-content>
 

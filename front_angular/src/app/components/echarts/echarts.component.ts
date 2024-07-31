@@ -31,7 +31,7 @@ export class EchartsComponent implements AfterViewInit {
 
     const option = {
       title: {
-        text: 'Mapa de Colombia',
+        text: 'Ubicación: Bogotá, Colombia',
         textStyle: {
           color: 'white' // Cambia el color del texto aquí
         }
@@ -40,9 +40,28 @@ export class EchartsComponent implements AfterViewInit {
       series: [
         {
           type: 'map',
-          map: 'colombia'
-        }
-      ]
+          map: 'colombia',
+          itemStyle: {
+            normal: {
+              areaColor: '#cccccc', // Color por defecto para las áreas
+              borderColor: '#111',  // Color del borde de las áreas
+            },
+            emphasis: {
+              areaColor: '#ffcc00', // Color al pasar el mouse por encima
+            },
+          },
+          regions: [
+            {
+              name: 'SANTAFE DE BOGOTA D.C',  // Nombre del departamento
+              itemStyle: {
+                normal: {
+                  areaColor: '#ff0000',  // Color específico para Bogotá
+                },
+              },
+            },
+          ],
+        },
+      ],
     };
 
     myChart.setOption(option);
