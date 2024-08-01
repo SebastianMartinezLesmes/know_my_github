@@ -21,6 +21,7 @@ export class HomePage {
   experience_reference(){
     this.experience_call = 'reference'
   }
+
   graphicfront(){
     this.graphic = 'front';
   }
