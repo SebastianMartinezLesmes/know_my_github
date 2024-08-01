@@ -1,4 +1,4 @@
-/*arriba*/
+/* arriba */
 #arriba{
     display: flex;
     flex-direction: row;
@@ -28,7 +28,7 @@
     }
 }
 
-/* Presentación (quien soy)*/
+/* Presentación (quien soy) */
 #content_presentation{
     display: flex;
     flex-direction: row;
@@ -49,6 +49,34 @@
     }
 }
 
+/* experienia */
+#experiencia{
+    display: flex;
+    flex-wrap: wrap;
+    #botones_experiencia{
+        width: 20%;
+        display: flex;flex-direction: column;
+        justify-content: space-evenly;
+        ion-buttton{
+            flex: 1;
+        }
+    }
+    #cards_experiencia{
+        width: 80%;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .card_experiencia{
+            padding: 1%;
+            // text-align: center;
+            align-items: center;
+            width: 35%;
+            height: auto;
+        }
+    }
+}
+
 /* lenguajes de programación*/
 #content_graphics{
     display: flex;
@@ -64,6 +92,7 @@
     width: 30%;
     ion-button{
         flex: 1;
+        font-size: 1.5vw; 
     }
 
     @media (max-width: 768px) { // Tamaño ajustado para pantallas móviles
@@ -73,6 +102,7 @@
         width: 80%;
         justify-content: space-evenly;
         ion-button{
+            font-size: 4.5vw; 
             flex: 1;
         }
     }
@@ -80,6 +110,15 @@
 #graphics{
     width: 65%;
     height: auto;
+    h3{
+        --background: red;
+        font-size: 1.5vw; 
+    }
+    @media (max-width: 768px) {
+        h3{
+            font-size: 4.5vw; 
+        }
+    }
 }
 
 /* Pie de página */
@@ -96,7 +135,7 @@ ion-footer {
 }
 
 #footer-icons ion-icon {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     color: white;
 }
 
@@ -118,29 +157,6 @@ ion-footer {
         font-size: 1.3rem;
         gap: 1rem;
         color: white;
-    }
-}
-
-@media (max-width: 480px) {
-    #profile-img {
-        width: 100px;
-        height: 100px;
-    }
-
-    #portfolio-container {
-        padding: 0.5rem;
-    }
-
-    #footer-icons {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        gap: 1rem;
-    }
-
-    #footer-icons ion-icon {
-        color: white;
-        font-size: 1.2rem;
     }
 }
 
