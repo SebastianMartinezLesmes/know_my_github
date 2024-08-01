@@ -7,9 +7,17 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(){}
 
+  experience_call= 'jobs'
   graphic: string = 'front';
+
+  experience_jobs(){
+    this.experience_call = 'jobs'
+  }
+  experience_reference(){
+    this.experience_call = 'reference'
+  }
 
   graphicfront(){
     this.graphic = 'front';

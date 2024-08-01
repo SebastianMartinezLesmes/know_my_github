@@ -1,4 +1,3 @@
-<!-- src/app/home/home.page.html -->
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Portafolio web</ion-title>
@@ -6,13 +5,12 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div id="portfolio-container">    
+
     <div id="arriba">
-      <img id="profile-img" src="../../assets/programer.jpg" alt="Programer img">
-      <div>
+      <img id="profile_img" src="../../assets/programer.jpg" alt="Programer img">
+      <div id="profile_info">
         <h1>Juan Sebastian Martinez Lesmes</h1>
-        <h4>Colombiano</h4>
-        <h4>Analista desarrollador de software</h4>
+        <h4>Analista y desarrollador de software</h4>
       </div>
     </div>
 
@@ -23,35 +21,19 @@
             <ion-item slot="header">
               <ion-label>¿Quién soy?</ion-label>
             </ion-item>
-            <div class="ion-padding" slot="content">
+            <div id="content_presentation" slot="content">
               <p>
-                Soy un analista y desarrollador de software con 2 años de experiencia en el desarrollo frontend
-                y 1 año en el backend, así como en bases de datos relacionales y no relacionales. 
-                Me apasiona el aprendizaje continuo, enfrentar nuevos retos y resolver acertijos mentales.
+                Soy un analista y desarrollador de software con 2 años de experiencia en desarrollo frontend, utilizando frameworks como Ionic, AngularJS y ReactJS, así como lenguajes como HTML, CSS, JavaScript y TypeScript. <br>
+                Además, cuento con 1 año de experiencia en desarrollo backend, trabajando con frameworks como FastAPI y Express, y lenguajes como JavaScript y Python. También tengo experiencia en bases de datos relacionales como MySQL y no relacionales como MongoDB. <br>
+                Me apasiona el aprendizaje continuo, enfrentar nuevos retos y resolver acertijos mentales. <br>
+                Colombiano con español nativo he ingles basico.
               </p>
+              <app-echarts></app-echarts>
             </div>
           </ion-accordion>
         </ion-accordion-group>
       </div>
 
-      <div class="section">
-        <ion-accordion-group>
-          <ion-accordion>
-            <ion-item slot="header">
-              <ion-label>Hobbys</ion-label>
-            </ion-item>
-            <div class="ion-padding" slot="content">
-              <ol id="lista_hobby">
-                <li>Puzzles</li>
-                <li>Escuchar musica</li>
-                <li>Jugar videojuegos</li>
-                <li>Ver peliculas</li>
-              </ol>
-            </div>
-          </ion-accordion>
-        </ion-accordion-group>
-      </div>
-  
       <div class="section">
         <ion-accordion-group>
           <ion-accordion>
@@ -66,47 +48,60 @@
           </ion-accordion>
         </ion-accordion-group>
       </div>
-  
+      
       <div class="section">
         <ion-accordion-group>
           <ion-accordion>
             <ion-item slot="header">
-              <ion-label>Experiencia</ion-label>
+              <ion-label><h3> Experiencia </h3></ion-label>
             </ion-item>
-            <div class="ion-padding" slot="content">
-              <p>Sena: 2022 - 2023</p>
-              <p>Grupo-ASD: 2023 - 2024</p>
+            <div slot="content" id="experiencia">
+              <div id="botones_experiencia">
+                <ion-button (click)="experience_jobs()">Trabajos</ion-button>
+                <ion-button (click)="experience_reference()">Referencias</ion-button>
+              </div>
+              <div id="cards_experiencia" *ngIf="experience_call === 'jobs'">
+                <ion-card class="card_experiencia">
+                  <ion-card-title>Sena</ion-card-title>
+                  <ion-card-subtitle> jun/2022 - dic/2023</ion-card-subtitle>
+                  <ion-card-content>Aprendiz</ion-card-content>
+                </ion-card>
+                <ion-card class="card_experiencia">
+                  <ion-card-title>Grupo-ASD</ion-card-title>
+                  <ion-card-subtitle> dic/2023 - jun/2024</ion-card-subtitle>
+                  <ion-card-content>Analista y dasarrollador de software</ion-card-content>
+                </ion-card>
+              </div>
+              <div id="cards_experiencia" *ngIf="experience_call === 'reference'">
+                <ion-card>
+                  <ion-card-title>Nombre</ion-card-title>
+                  <ion-card-subtitle>cargo</ion-card-subtitle>
+                  <ion-card-subtitle>celular</ion-card-subtitle>
+                </ion-card>
+              </div>
             </div>
           </ion-accordion>
         </ion-accordion-group>
       </div>
-  
+
       <div class="section">
         <ion-accordion-group>
           <ion-accordion>
             <ion-item slot="header">
-              <ion-label>Lenguajes de programación que manejo</ion-label>
+              <ion-label><h3> Lenguajes de programación que manejo </h3></ion-label>
             </ion-item>
-            <div class="ion-padding" slot="content">
-  
-              <ion-item lines="none">
-                <div class="button-group">
-                  <ion-button expand="block" (click)="graphicfront()">Frontend lenguajes</ion-button>
-                  <ion-button expand="block" (click)="graphicBack()">Backend lenguajes</ion-button>
-                  <ion-button expand="block" (click)="graphicdataBase()">Bases de Datos lenguajes</ion-button>
-
-                  <ion-item>
-                    <h1>Grafica de {{graphic}} :</h1>
-                  </ion-item>
-                </div>
-                <ion-card id="graficas">
-                    <app-frontend-graphic-component *ngIf="graphic === 'front'"></app-frontend-graphic-component>
-                    <app-backend-graphic-component *ngIf="graphic === 'back'"></app-backend-graphic-component>
-                    <app-database-graphic-component *ngIf="graphic === 'database'"></app-database-graphic-component>
-
-                </ion-card>
-              </ion-item>
-  
+            <div class="ion-padding" slot="content" id="content_graphics">
+              <div lines="none" id="button-group">
+                <ion-button (click)="graphicfront()">Frontend lenguajes</ion-button>
+                <ion-button (click)="graphicBack()">Backend lenguajes</ion-button>
+                <ion-button (click)="graphicdataBase()">Databases lenguajes</ion-button>
+              </div>
+              <ion-card id="graphics">
+                <h3>Gráfica de {{graphic}} :</h3>
+                <app-backend-graphic-component *ngIf="graphic === 'back'"></app-backend-graphic-component>
+                <app-frontend-graphic-component *ngIf="graphic === 'front'"></app-frontend-graphic-component>
+                <app-database-graphic-component *ngIf="graphic === 'database'"></app-database-graphic-component>
+              </ion-card>
             </div>
           </ion-accordion>
         </ion-accordion-group>
@@ -116,10 +111,9 @@
     <div id="abajo">
       abajo
     </div>
-  </div>
 </ion-content>
 
-<ion-footer>
+<ion-item>
   <ion-toolbar>
     <div id="footer-icons">
       <ion-icon name="mail-outline"></ion-icon>
@@ -128,4 +122,4 @@
       <ion-icon name="logo-linkedin"></ion-icon>
     </div>
   </ion-toolbar>
-</ion-footer>
+</ion-item>
