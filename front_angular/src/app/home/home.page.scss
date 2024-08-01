@@ -78,7 +78,6 @@
         flex-wrap: wrap;
         .card_experiencia{
             padding: 1%;
-            // text-align: center;
             align-items: center;
             width: 35%;
             height: auto;
@@ -148,17 +147,54 @@ ion-footer {
     color: white;
 }
 
-/* Media Queries */
-@media (max-width: 768px) { // Tamaño ajustado para pantallas móviles
+/* Tamaño ajustado para pantallas móviles */
+@media (max-width: 768px) { 
+    // encabezado
     #profile-img {
         width: 120px;
         height: 120px;
     }
 
-    #medio {
-        padding: 0.75rem;
+    // experiencia
+    #experiencia{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        #botones_experiencia{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+        #cards_experiencia{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            .card_experiencia{
+                width: 100%;
+            }
+        }
+    }
+    // graficas
+    #content_graphics{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        #button-group{
+            width: 99%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            ion-button{
+                font-size: 3.5vw;
+            }
+        }
+        #graphics{
+            width: 100%;
+            height: auto;
+        }
     }
 
+    // pie de pagina
     #footer-icons {
         display: flex;
         flex-direction: row;
