@@ -55,10 +55,19 @@
     flex-wrap: wrap;
     #botones_experiencia{
         width: 20%;
+        padding: 1%;
         display: flex;flex-direction: column;
         justify-content: space-evenly;
         ion-buttton{
             flex: 1;
+        }
+        #trabajos{
+            --background: rgba(255, 0, 0, 0.629);
+            color: white;
+        }
+        #referencias{
+            --background: rgba(255, 0, 0, 0.629);
+            color: white;
         }
     }
     #cards_experiencia{
@@ -157,14 +166,5 @@ ion-footer {
         font-size: 1.3rem;
         gap: 1rem;
         color: white;
-    }
-}
-
-.button-group{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    ion-button{
-        flex: 1;
     }
 }

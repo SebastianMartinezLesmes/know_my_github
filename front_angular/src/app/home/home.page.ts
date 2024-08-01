@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,9 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(
+    private router:Router
+  ) {}
 
   experience_call= 'jobs'
   graphic: string = 'front';
@@ -26,6 +29,14 @@ export class HomePage {
   }
   graphicdataBase(){
     this.graphic = 'database';
+  }
+
+  goGitHub(){
+    this.router.navigate(['./git-hub'])
+  }
+
+  goLinkedin(){
+    this.router.navigate(['./linkedin'])
   }
 
 }

@@ -57,9 +57,13 @@
               <ion-label><h3> Experiencia </h3></ion-label>
             </ion-item>
             <div slot="content" id="experiencia">
-              <div id="botones_experiencia">
-                <ion-button (click)="experience_jobs()">Trabajos</ion-button>
+              <div id="botones_experiencia" *ngIf="experience_call === 'jobs'">
+                <ion-button (click)="experience_jobs()" id="trabajos">Trabajos</ion-button>
                 <ion-button (click)="experience_reference()">Referencias</ion-button>
+              </div>
+              <div id="botones_experiencia" *ngIf="experience_call === 'reference'">
+                <ion-button (click)="experience_jobs()">Trabajos</ion-button>
+                <ion-button (click)="experience_reference()" id="referencias">Referencias</ion-button>
               </div>
               <div id="cards_experiencia" *ngIf="experience_call === 'jobs'">
                 <ion-card class="card_experiencia">
@@ -74,10 +78,10 @@
                 </ion-card>
               </div>
               <div id="cards_experiencia" *ngIf="experience_call === 'reference'">
-                <ion-card>
+                <ion-card class="card_experiencia">
                   <ion-card-title>Nombre</ion-card-title>
                   <ion-card-subtitle>cargo</ion-card-subtitle>
-                  <ion-card-subtitle>celular</ion-card-subtitle>
+                  <ion-card-content>celular</ion-card-content>
                 </ion-card>
               </div>
             </div>
@@ -119,8 +123,8 @@
     <div id="footer-icons">
       <ion-icon name="mail-outline"></ion-icon>
       <ion-icon name="logo-whatsapp"></ion-icon>
-      <ion-icon name="logo-github"></ion-icon>
-      <ion-icon name="logo-linkedin"></ion-icon>
+      <ion-icon name="logo-github" (click)="goGitHub()"></ion-icon>
+      <ion-icon name="logo-linkedin" (click)="goLinkedin()"></ion-icon>
     </div>
   </ion-toolbar>
 </ion-item>
