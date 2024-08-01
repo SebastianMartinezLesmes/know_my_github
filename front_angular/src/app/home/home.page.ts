@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(){}
 
   experience_call= 'jobs'
   graphic: string = 'front';
@@ -18,6 +18,7 @@ export class HomePage {
   experience_reference(){
     this.experience_call = 'reference'
   }
+
   graphicfront(){
     this.graphic = 'front';
   }

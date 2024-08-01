@@ -7,7 +7,6 @@ import { BackendGraphicComponentComponent } from "./backend-graphic-component/ba
 import { DatabaseGraphicComponentComponent } from "./database-graphic-component/database-graphic-component.component";
 import { EchartsComponent } from "./echarts/echarts.component";
 
-
 @NgModule({
     declarations: [
         FrontendGraphicComponentComponent,

@@ -140,7 +140,7 @@ ion-footer {
 }
 
 /* Media Queries */
-@media (max-width: 768px) {
+@media (max-width: 768px) { // Tamaño ajustado para pantallas móviles
     #profile-img {
         width: 120px;
         height: 120px;
@@ -167,4 +167,26 @@ ion-footer {
     ion-button{
         flex: 1;
     }
+}
+
+.button-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 50%;
+    height: 500px;
+    ion-button{
+        height: 50px;
+    }
+}
+
+#graficas{
+    width: 50%;
+    height: 500px;
+}
+
+#lista_hobby{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
