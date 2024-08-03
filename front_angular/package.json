@@ -28,6 +28,7 @@
     "@capacitor/status-bar": "6.0.0",
     "@ionic/angular": "^8.0.0",
     "@swimlane/ngx-charts": "^20.5.0",
+    "axios": "^1.7.3",
     "chart.js": "^4.4.3",
     "echarts": "^5.5.1",
     "ionicons": "^7.0.0",

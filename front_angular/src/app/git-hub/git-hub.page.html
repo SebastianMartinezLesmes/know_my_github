@@ -1,11 +1,44 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>git-hub</ion-title>
+    <ion-avatar>aca el logo de git hub</ion-avatar>
+    <ion-title>Github</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  git-hub
+  <ion-card>
+    <ion-card-header>
+      <ion-item lines="none">
+        <ion-avatar slot="start">
+          <img [src]="user.avatar_url" alt="Profile Image">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ user.name }}</h2>
+          <p>{{ user.login }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Bio:</strong> {{ user.bio }}</p>
+      <p><strong>Public Repos:</strong> {{ user.public_repos }}</p>
+      <p><strong>created_at:</strong> {{ user.created_at }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngFor="let rep of repos">
+    <ion-card-header>
+      {{rep.name}}
+    </ion-card-header>
+    <ion-card-content>
+      description: {{rep.description}}<br>
+      default_branch: {{rep.default_branch}}<br>
+      branches: {{rep.branches}}<br>
+      open_issues: {{rep.open_issues}}<br>
+      languages: {{rep.languages}}<br>
+      created_at: {{rep.created_at}}<br>
+      pushed_at: {{rep.pushed_at}}<br>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
 
 <ion-item>
