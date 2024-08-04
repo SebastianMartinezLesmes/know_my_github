@@ -27,16 +27,15 @@
 
   <ion-card *ngFor="let rep of repos">
     <ion-card-header>
-      {{rep.name}}
+      {{ rep.name }}
     </ion-card-header>
     <ion-card-content>
-      description: {{rep.description}}<br>
-      default_branch: {{rep.default_branch}}<br>
-      branches: {{rep.branches}}<br>
-      open_issues: {{rep.open_issues}}<br>
-      languages: {{rep.languages}}<br>
-      created_at: {{rep.created_at}}<br>
-      pushed_at: {{rep.pushed_at}}<br>
+      <p><strong>Default Branch:</strong> {{ rep.default_branch }}</p>
+      <p><strong>Open Issues:</strong> {{ rep.open_issues }}</p>
+      <p><strong>Languages:</strong> {{ rep.languages.join(', ') }}</p>
+      <p><strong>Branches:</strong> {{ rep.branches.join(', ') }}</p>
+      <p><strong>Created At:</strong> {{ rep.created_at | date:'medium' }}</p>
+      <p><strong>Pushed At:</strong> {{ rep.pushed_at | date:'medium' }}</p>
     </ion-card-content>
   </ion-card>
 </ion-content>

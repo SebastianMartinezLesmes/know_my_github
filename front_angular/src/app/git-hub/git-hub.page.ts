@@ -60,9 +60,10 @@ export class GitHubPage implements OnInit {
           created_at: repo.created_at,
           pushed_at: repo.pushed_at,
           languages: [],
-          branches: [],
+          branches: [], 
         }));
-        this.getReposLanguages();  // Llamar a getReposLanguages después de obtener los repositorios
+        this.getReposLanguages();
+        this.getReposBranches();
       },
       error => {
         console.error('Error:', error);
@@ -90,8 +91,8 @@ export class GitHubPage implements OnInit {
       this.http.get('https://api.github.com/repos/' + this.userName + '/' + repo.name + '/branches')
       .subscribe(
         (data: any) => {
-          repo.languages = Object.keys(data);
-          console.log(`Languages for ${repo.name}:`, repo.languages);
+          repo.branches = data.map((branch: any) => branch.name);
+          console.log(`Branches for ${repo.name}:`, repo.branches);
         },
         error => {
           console.error('Error:', error);
