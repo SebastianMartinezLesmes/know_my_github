@@ -4,7 +4,6 @@
     <ion-title>Github</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-card>
     <ion-card-header>
@@ -21,25 +20,39 @@
     <ion-card-content>
       <p><strong>Bio:</strong> {{ user.bio }}</p>
       <p><strong>Public Repos:</strong> {{ user.public_repos }}</p>
-      <p><strong>created_at:</strong> {{ user.created_at }}</p>
+      <p><strong>Created At:</strong> {{ user.created_at | date:'medium' }}</p>
     </ion-card-content>
   </ion-card>
-
   <ion-card *ngFor="let rep of repos">
     <ion-card-header>
       {{ rep.name }}
     </ion-card-header>
     <ion-card-content>
       <p><strong>Default Branch:</strong> {{ rep.default_branch }}</p>
+      <p><strong>Branches:</strong> {{ rep.branches.join(', ') }}</p>
       <p><strong>Open Issues:</strong> {{ rep.open_issues }}</p>
       <p><strong>Languages:</strong> {{ rep.languages.join(', ') }}</p>
-      <p><strong>Branches:</strong> {{ rep.branches.join(', ') }}</p>
       <p><strong>Created At:</strong> {{ rep.created_at | date:'medium' }}</p>
       <p><strong>Pushed At:</strong> {{ rep.pushed_at | date:'medium' }}</p>
+      <p><strong>Pull Requests:</strong></p>
+      <ul>
+        <li *ngFor="let pull of rep.pulls">
+          <p><strong>Title:</strong> {{ pull.title }}</p>
+          <p><strong>Created At:</strong> {{ pull.created_at | date:'medium' }}</p>
+        </li>
+      </ul>
+      <p><strong>Issues:</strong></p>
+      <ul>
+        <li *ngFor="let issue of rep.issues">
+          <p><strong>Title:</strong> {{ issue.title }}</p>
+          <p><strong>State:</strong> {{ issue.state }}</p>
+          <p><strong>Created At:</strong> {{ issue.created_at | date:'medium' }}</p>
+          <p><strong>Closed At At:</strong> {{ issue.closed_at | date:'medium' }}</p>
+        </li>
+      </ul>
     </ion-card-content>
   </ion-card>
 </ion-content>
-
 <ion-item>
   <ion-toolbar>
     <div id="footer-icons">
