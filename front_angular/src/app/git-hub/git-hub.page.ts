@@ -19,8 +19,9 @@ export class GitHubPage implements OnInit {
     this.getRepositories();
   }
 
+  // ghp _ YP8Tl53gze97wpk9SHVHcAMg9s8fUn4TZ8cf
   userName: string = 'SebastianMartinezLesmes'; // Nombre del usuario de GitHub
-  readT: string = ''; // Token para realizar las consultas
+  readT: string = ''; // Token para realizar las consultas 
   user: any = [];
   repos: any = [];
 
@@ -68,19 +69,21 @@ export class GitHubPage implements OnInit {
         this.repos = data.map((repo: any) => ({
           name: repo.name,
           description: repo.description,
-          default_branch: repo.default_branch,
-          open_issues: repo.open_issues,
           created_at: repo.created_at,
           pushed_at: repo.pushed_at,
           languages: [],
           branches: [], 
+          default_branch: repo.default_branch,
           pulls: [],
-          issues: []
+          issues: [],
+          open_issues: repo.open_issues,
+          contributions: [],
         }));
         this.getReposLanguages();
         this.getReposBranches();
         this.getReposPulls();
         this.getReposIssues();
+        this.getReposContributors();
       },
       error => {
         if (error.status === 403) {
@@ -186,13 +189,17 @@ export class GitHubPage implements OnInit {
     });
   }
 
-  getReposCollaborators(){
+  getReposContributors(){
     this.repos.forEach((repo: any) => {
-      this.http.get('https://api.github.com/repos/' + this.userName + '/' + repo.name + '/collaborators', { headers: this.getHeaders() })
+      this.http.get('https://api.github.com/repos/' + this.userName + '/' + repo.name + '/contributors', { headers: this.getHeaders() })
       .subscribe(
         (data: any) => {
-          repo.languages = Object.keys(data);
-          console.log(`Collaborators for ${repo.name}:`, repo.languages);
+          repo.contributions = data.map((contributor: any) => ({
+            login: contributor.login,
+            avatar_url: contributor.avatar_url,
+            contributions: contributor.contributions,
+          }));
+          console.log(`Collaborators for ${repo.name}:`, repo.collaborators);
         },
         error => {
           if (error.status === 403) {
