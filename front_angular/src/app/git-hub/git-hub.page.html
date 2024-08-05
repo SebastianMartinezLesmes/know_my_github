@@ -4,6 +4,7 @@
     <ion-title>Github</ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content [fullscreen]="true">
   <ion-card>
     <ion-card-header>
@@ -23,6 +24,7 @@
       <p><strong>Created At:</strong> {{ user.created_at | date:'medium' }}</p>
     </ion-card-content>
   </ion-card>
+
   <ion-card *ngFor="let rep of repos">
     <ion-card-header>
       {{ rep.name }}
@@ -50,9 +52,20 @@
           <p><strong>Closed At At:</strong> {{ issue.closed_at | date:'medium' }}</p>
         </li>
       </ul>
+      <p><strong>Collaborators:</strong></p>
+      <ion-item *ngFor="let col of rep.contributions">
+        <ion-avatar slot="start">
+          <img [src]="col.avatar_url" alt="Collaborator Image">
+        </ion-avatar>
+        <ion-label>{{ col.login }}</ion-label>
+        <ion-label slot="end"> {{col.contributions}} </ion-label>
+        implement here a Bar of EchartsJS
+      </ion-item>
+      
     </ion-card-content>
   </ion-card>
 </ion-content>
+
 <ion-item>
   <ion-toolbar>
     <div id="footer-icons">
