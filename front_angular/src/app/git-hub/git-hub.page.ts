@@ -21,9 +21,11 @@ export class GitHubPage implements OnInit {
 
   // YP8Tl53gze97wpk9SHVHcAMg9s8fUn4TZ8cf
   userName: string = 'SebastianMartinezLesmes'; // Nombre del usuario de GitHub
-  readT: string = ''; // Token para realizar las consultas 
+  readT: string = 'ghp_'+''; // Token para realizar las consultas 
   user: any = [];
   repos: any = [];
+  filteredRepos: any = []; // Lista de repositorios filtrados
+  searchTerm: string = ''; // Término de búsqueda
 
   goLinkedin(){
     this.router.navigate(['./linkedin']);
@@ -79,6 +81,7 @@ export class GitHubPage implements OnInit {
           open_issues: repo.open_issues,
           contributions: [],
         }));
+        this.filteredRepos = [...this.repos];
         this.getReposLanguages();
         this.getReposBranches();
         this.getReposPulls();
@@ -212,5 +215,16 @@ export class GitHubPage implements OnInit {
         }
       );
     });
+  }
+
+  filterRepos(event: any) {
+    const searchTerm = event.target.value.toLowerCase();
+    if (searchTerm.trim().length === 0) {
+      this.filteredRepos = [...this.repos]; // Mostrar todos los repositorios si el término de búsqueda está vacío
+    } else {
+      this.filteredRepos = this.repos.filter((repo: any) =>
+        repo.name.toLowerCase().includes(searchTerm)
+      );
+    }
   }
 }

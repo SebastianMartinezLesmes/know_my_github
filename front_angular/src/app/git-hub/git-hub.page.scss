@@ -6,12 +6,23 @@
     text-align: center;
     ion-avatar {
         margin: 1%;
-        background:rgb(0, 255, 21) ;
+        background:linear-gradient(to top, transparent, rgba(255, 0, 0, 0.494));
     }
     ion-title{
         font-size: 2.5vw;
         font-family: bold;
         font-weight: bold;
+    }
+}
+
+/*encabezado de la card del usuario*/
+#header_card_user{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    ion-avatar{
+        margin: 1%;
     }
 }
 
