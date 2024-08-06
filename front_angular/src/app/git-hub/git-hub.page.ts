@@ -21,7 +21,7 @@ export class GitHubPage implements OnInit {
 
   // YP8Tl53gze97wpk9SHVHcAMg9s8fUn4TZ8cf
   userName: string = 'SebastianMartinezLesmes'; // Nombre del usuario de GitHub
-  readT: string = 'ghp_'+''; // Token para realizar las consultas 
+  readT: string = 'ghp_'+'YP8Tl53gze97wpk9SHVHcAMg9s8fUn4TZ8cf'; // Token para realizar las consultas 
   user: any = [];
   repos: any = [];
   filteredRepos: any = []; // Lista de repositorios filtrados
