@@ -34,48 +34,50 @@
       {{ rep.name }}
     </ion-card-header>
     <ion-card-content>
+      <p><strong>Description:</strong> {{ rep.description }}</p>
       <p><strong>Default Branch:</strong> {{ rep.default_branch }}</p>
-      <p><strong>Branches:</strong> {{ rep.branches.join(', ') }}</p>
-      <p><strong>Open Issues:</strong> {{ rep.open_issues }}</p>
-      <p><strong>Languages:</strong> {{ rep.languages.join(', ') }}</p>
-      <p><strong>Created At:</strong> {{ rep.created_at | date:'medium' }}</p>
-      <p><strong>Pushed At:</strong> {{ rep.pushed_at | date:'medium' }}</p>
-      <p><strong>Pull Requests:</strong></p>
-      <ul>
-        <li *ngFor="let pull of rep.pulls">
-          <p><strong>Title:</strong> {{ pull.title }}</p>
-          <p><strong>Created At:</strong> {{ pull.created_at | date:'medium' }}</p>
-        </li>
-      </ul>
-      <p><strong>Issues:</strong></p>
-      <ul>
-        <li *ngFor="let issue of rep.issues">
-          <p><strong>Title:</strong> {{ issue.title }}</p>
-          <p><strong>State:</strong> {{ issue.state }}</p>
-          <p><strong>Created At:</strong> {{ issue.created_at | date:'medium' }}</p>
-          <p><strong>Closed At At:</strong> {{ issue.closed_at | date:'medium' }}</p>
-        </li>
-      </ul>
-      <p><strong>Contributors:</strong></p>
-      <ion-item *ngFor="let col of rep.contributions">
-        <ion-avatar slot="start">
-          <img [src]="col.avatar_url" alt="Collaborator Image">
-        </ion-avatar>
-        <ion-label>{{ col.login }}</ion-label>
-        <ion-label slot="end"> {{col.contributions}} </ion-label>
-        implement here a Bar of EchartsJS
-      </ion-item>
-      
     </ion-card-content>
   </ion-card>
 </ion-content>
 
-<ion-content [fullscreen]="true" (click)="ChangeWindow()" *ngIf="window === 'dataRepo'">
+<ion-content [fullscreen]="true" *ngIf="window === 'dataRepo'">
   <ion-button (click)="ChangeWindow()">
     back
   </ion-button>
-</ion-content>
 
+  <p><strong>Branches:</strong> {{ infoRepo.branches.join(', ') }}</p>
+  <p><strong>Languages:</strong> {{ infoRepo.languages.join(', ') }}</p>
+  <p><strong>Created At:</strong> {{ infoRepo.created_at | date:'medium' }}</p>
+  <p><strong>Pushed At:</strong> {{ infoRepo.pushed_at | date:'medium' }}</p>
+
+  <p><strong>Pull Requests:</strong></p>
+      <ul>
+        <li *ngFor="let pull of infoRepo.pulls">
+          <p><strong>Title:</strong> {{ pull.title }}</p>
+          <p><strong>Created At:</strong> {{ pull.created_at | date:'medium' }}</p>
+        </li>
+      </ul>
+
+  <p><strong>Issues:</strong></p>
+  <ul>
+    <li *ngFor="let issue of infoRepo.issues">
+      <p><strong>Title:</strong> {{ issue.title }}</p>
+      <p><strong>State:</strong> {{ issue.state }}</p>
+      <p><strong>Created At:</strong> {{ issue.created_at | date:'medium' }}</p>
+      <p><strong>Closed At At:</strong> {{ issue.closed_at | date:'medium' }}</p>
+    </li>
+  </ul>
+
+  <p><strong>Contributors:</strong></p>
+  <ion-item *ngFor="let col of infoRepo.contributions">
+    <ion-avatar slot="start">
+      <img [src]="col.avatar_url" alt="Collaborator Image">
+    </ion-avatar>
+    <ion-label>{{ col.login }}</ion-label>
+    <ion-label slot="end"> {{col.contributions}} </ion-label>
+    implement here a Bar of EchartsJS
+  </ion-item>
+</ion-content>
 
 <ion-item>
   <ion-toolbar>
