@@ -7,8 +7,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-card id="card_user">
+<ion-content [fullscreen]="true" *ngIf="window === 'repositories'">
+  <ion-card>
     <ion-card-header>
       <div id="header_card_user">
         <ion-avatar slot="start">
@@ -29,7 +29,7 @@
 
   <ion-searchbar (ionInput)="filterRepos($event)" show-clear-button="always"></ion-searchbar>
 
-  <ion-card *ngFor="let rep of filteredRepos">
+  <ion-card *ngFor="let rep of filteredRepos" (click)="getInfoRepo(rep)">
     <ion-card-header>
       {{ rep.name }}
     </ion-card-header>
@@ -69,6 +69,13 @@
     </ion-card-content>
   </ion-card>
 </ion-content>
+
+<ion-content [fullscreen]="true" (click)="ChangeWindow()" *ngIf="window === 'dataRepo'">
+  <ion-button (click)="ChangeWindow()">
+    back
+  </ion-button>
+</ion-content>
+
 
 <ion-item>
   <ion-toolbar>

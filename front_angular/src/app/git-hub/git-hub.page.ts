@@ -24,22 +24,40 @@ export class GitHubPage implements OnInit {
   readT: string = 'ghp_'+'YP8Tl53gze97wpk9SHVHcAMg9s8fUn4TZ8cf'; // Token para realizar las consultas 
   user: any = [];
   repos: any = [];
-  filteredRepos: any = []; // Lista de repositorios filtrados
-  searchTerm: string = ''; // Término de búsqueda
+  searchTerm: string = ''; 
+  filteredRepos: any = []; 
+
+  window: string = 'repositories';
+  infoRepo: any = [];
+
+  ChangeWindow(){
+    if(this.window === 'repositories'){
+      this.window = 'dataRepo'
+    }
+    else {
+      this.window = 'repositories'
+    }
+  };
+  
+  getInfoRepo(rep:any){
+    this.ChangeWindow();
+    console.log('Recibed repo \n .'+rep.name)
+    this.infoRepo = rep
+  };
 
   goLinkedin(){
     this.router.navigate(['./linkedin']);
-  }
+  };
   
   goHome(){
     this.router.navigate(['./home']);
-  }
+  };
 
   getHeaders() {
     return new HttpHeaders({
       'Authorization': `token ${this.readT}`
-    });
-  }
+    })
+  };
 
   getBasicData(){
     this.http.get('https://api.github.com/users/' + this.userName, { headers: this.getHeaders() })
@@ -57,8 +75,8 @@ export class GitHubPage implements OnInit {
           console.error('Error:', error);
         }
       }
-    );
-  }
+    )
+  };
 
   getRepositories(){
     this.http.get('https://api.github.com/users/' + this.userName + '/repos', { headers: this.getHeaders() })
@@ -97,8 +115,8 @@ export class GitHubPage implements OnInit {
           console.error('Error:', error);
         }
       }
-    );
-  }
+    )
+  };
 
   getReposLanguages(){
     this.repos.forEach((repo: any) => {
@@ -117,9 +135,9 @@ export class GitHubPage implements OnInit {
             console.error('Error:', error);
           }
         }
-      );
-    });
-  }
+      )
+    })
+  };
 
   getReposBranches(){
     this.repos.forEach((repo: any) => {
@@ -138,9 +156,9 @@ export class GitHubPage implements OnInit {
             console.error('Error:', error);
           }
         }
-      );
-    });
-  }
+      )
+    })
+  };
 
   getReposPulls(){
     this.repos.forEach((repo: any) => {
@@ -162,9 +180,9 @@ export class GitHubPage implements OnInit {
             console.error('Error:', error);
           }
         }
-      );
-    });
-  }
+      )
+    })
+  };
   
   getReposIssues(){
     this.repos.forEach((repo: any) => {
@@ -188,9 +206,9 @@ export class GitHubPage implements OnInit {
             console.error('Error:', error);
           }
         }
-      );
-    });
-  }
+      )
+    })
+  };
 
   getReposContributors(){
     this.repos.forEach((repo: any) => {
@@ -213,18 +231,18 @@ export class GitHubPage implements OnInit {
             console.error('Error:', error);
           }
         }
-      );
-    });
-  }
+      )
+    })
+  };
 
   filterRepos(event: any) {
     const searchTerm = event.target.value.toLowerCase();
     if (searchTerm.trim().length === 0) {
-      this.filteredRepos = [...this.repos]; // Mostrar todos los repositorios si el término de búsqueda está vacío
+      this.filteredRepos = [...this.repos];
     } else {
       this.filteredRepos = this.repos.filter((repo: any) =>
         repo.name.toLowerCase().includes(searchTerm)
-      );
+      )
     }
-  }
+  };
 }
