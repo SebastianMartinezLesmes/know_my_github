@@ -19,7 +19,7 @@ export class GitHubPage implements OnInit {
     this.getRepositories();
   }
 
-  // ghp _ YP8Tl53gze97wpk9SHVHcAMg9s8fUn4TZ8cf
+  // YP8Tl53gze97wpk9SHVHcAMg9s8fUn4TZ8cf
   userName: string = 'SebastianMartinezLesmes'; // Nombre del usuario de GitHub
   readT: string = ''; // Token para realizar las consultas 
   user: any = [];

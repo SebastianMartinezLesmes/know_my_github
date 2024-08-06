@@ -1,24 +1,34 @@
-/* Pie de página */
-ion-footer {
-    background-color: #f8f9fa;
-    padding: 2rem;
+/* Encabezado */
+#header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    ion-avatar {
+        margin: 1%;
+        background:rgb(0, 255, 21) ;
+    }
+    ion-title{
+        font-size: 2.5vw;
+        font-family: bold;
+        font-weight: bold;
+    }
 }
 
+/* Pie de página */
 #footer-icons {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     gap: 1rem;
-}
-
-#footer-icons ion-icon {
-    font-size: 2.5rem;
-    color: white;
+    ion-icon {
+        font-size: 2.5rem;
+        color: white;
+    }
 }
 
 /* Media Queries */
 @media (max-width: 768px) {
-
     #footer-icons {
         display: flex;
         flex-direction: row;

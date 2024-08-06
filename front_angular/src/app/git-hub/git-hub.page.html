@@ -1,7 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-avatar>aca el logo de git hub</ion-avatar>
-    <ion-title>Github</ion-title>
+    <div id="header">
+      <ion-avatar><img src="../../assets/icon/github_logo.png" alt="logo github"></ion-avatar>
+      <ion-title>Github</ion-title>
+    </div>
   </ion-toolbar>
 </ion-header>
 
@@ -52,7 +54,7 @@
           <p><strong>Closed At At:</strong> {{ issue.closed_at | date:'medium' }}</p>
         </li>
       </ul>
-      <p><strong>Collaborators:</strong></p>
+      <p><strong>Contributors:</strong></p>
       <ion-item *ngFor="let col of rep.contributions">
         <ion-avatar slot="start">
           <img [src]="col.avatar_url" alt="Collaborator Image">
