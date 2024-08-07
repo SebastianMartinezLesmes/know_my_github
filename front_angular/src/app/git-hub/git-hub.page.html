@@ -36,50 +36,38 @@
       {{ rep.name }}
     </ion-card-header>
     <ion-card-content>
-      <p><strong>Description:</strong> {{ rep.description }}</p>
       <p><strong>Default Branch:</strong> {{ rep.default_branch }}</p>
-      <br>
-      <div *ngIf="rep.languages">
-        <h3>Languages:</h3>
-        <ul>
-          <li *ngFor="let language of rep.languages">
-            {{ language.name }}: {{ language.percentage }}%
-          </li>
-        </ul>
-      </div>
+      <p><strong>Description:</strong> {{ rep.description }}</p>
     </ion-card-content>
   </ion-card>
 </ion-content>
 
 <ion-content [fullscreen]="true" *ngIf="window === 'dataRepo'">
-  <ion-button (click)="ChangeWindow()">
-    back
-  </ion-button>
+  <ion-button (click)="ChangeWindow()"> volver </ion-button>
 
-  <h3><strong>Name:</strong> {{ infoRepo.name }} </h3>
-  <p><strong>Description:</strong> {{ infoRepo.description }}</p>
-  <p><strong>Branches:</strong> {{ infoRepo.branches.join(', ') }}</p>
-  <p><strong>Languages:</strong> {{ infoRepo.languages.join(', ') }}</p>
-  <p><strong>Created At:</strong> {{ infoRepo.created_at | date:'medium' }}</p>
-  <p><strong>Pushed At:</strong> {{ infoRepo.pushed_at | date:'medium' }}</p>
+  <h3 *ngIf="infoRepo.name"><strong>Name:</strong> {{ infoRepo.name }} </h3>
+  <p *ngIf="infoRepo.description"><strong>Description:</strong> {{ infoRepo.description }}</p>
+  <p *ngIf="infoRepo.branches"><strong>Branches:</strong> {{ infoRepo.branches.join(', ') }}</p>
+  <p *ngIf="infoRepo.created_at"><strong>Created At:</strong> {{ infoRepo.created_at | date:'medium' }}</p>
+  <p *ngIf="infoRepo.pushed_at"><strong>Pushed At:</strong> {{ infoRepo.pushed_at | date:'medium' }}</p>
 
-  <h3>Languages:</h3>
-  <ul>
+  <h3 *ngIf="infoRepo.languages.lenght > 0">Languages:</h3>
+  <ul *ngIf="infoRepo.languages">
     <li *ngFor="let language of infoRepo.languages">
       {{ language.name }}: {{ language.percentage }}%
     </li>
   </ul>
 
-  <p><strong>Pull Requests:</strong></p>
-      <ul>
-        <li *ngFor="let pull of infoRepo.pulls">
-          <p><strong>Title:</strong> {{ pull.title }}</p>
-          <p><strong>Created At:</strong> {{ pull.created_at | date:'medium' }}</p>
-        </li>
-      </ul>
+  <p *ngIf="infoRepo.pulls.lenght > 0"><strong>Pull Requests:</strong></p>
+  <ul *ngIf="infoRepo.pulls">
+    <li *ngFor="let pull of infoRepo.pulls">
+      <p><strong>Title:</strong> {{ pull.title }}</p>
+      <p><strong>Created At:</strong> {{ pull.created_at | date:'medium' }}</p>
+    </li>
+  </ul>
 
-  <p><strong>Issues:</strong></p>
-  <ul>
+  <p *ngIf="infoRepo.issues.lenght > 0"><strong>Issues:</strong></p>
+  <ul *ngIf="infoRepo.issues">
     <li *ngFor="let issue of infoRepo.issues">
       <p><strong>Title:</strong> {{ issue.title }}</p>
       <p><strong>State:</strong> {{ issue.state }}</p>
@@ -88,15 +76,17 @@
     </li>
   </ul>
 
-  <p><strong>Contributors:</strong></p>
-  <ion-item *ngFor="let col of infoRepo.contributions">
-    <ion-avatar slot="start">
-      <img [src]="col.avatar_url" alt="Collaborator Image">
-    </ion-avatar>
-    <ion-label>{{ col.login }}</ion-label>
-    <ion-label slot="end"> {{col.contributions}} </ion-label>
-    implement here a Bar of EchartsJS
-  </ion-item>
+  <p *ngIf="infoRepo.contributions.lenght > 0"><strong>Contributors:</strong></p>
+  <div *ngIf="infoRepo.contributions">
+    <ion-item *ngFor="let con of infoRepo.contributions">
+      <ion-avatar slot="start">
+        <img [src]="con.avatar_url" alt="Collaborator Image">
+      </ion-avatar>
+      <ion-label> {{ con.login }} </ion-label>
+      <ion-label slot="end"> {{ con.contributions }} </ion-label>
+      implement here a Bar of EchartsJS
+    </ion-item>
+  </div>
 </ion-content>
 
 <ion-footer>
