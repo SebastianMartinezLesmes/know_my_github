@@ -22,12 +22,14 @@
     </ion-card-header>
     <ion-card-content>
       <p><strong>Bio:</strong> {{ user.bio }}</p>
-      <p><strong>Public Repos:</strong> {{ user.public_repos }}</p>
+      <p><strong>Public Repos:</strong> {{ infoRepo }}</p>
       <p><strong>Created At:</strong> {{ user.created_at | date:'medium' }}</p>
     </ion-card-content>
   </ion-card>
 
-  <ion-searchbar (ionInput)="filterRepos($event)" show-clear-button="always"></ion-searchbar>
+  <ion-card>
+    <ion-searchbar (ionInput)="filterRepos($event)" show-clear-button="always"></ion-searchbar>
+  </ion-card>
 
   <ion-card *ngFor="let rep of filteredRepos" (click)="getInfoRepo(rep)">
     <ion-card-header>
@@ -36,6 +38,15 @@
     <ion-card-content>
       <p><strong>Description:</strong> {{ rep.description }}</p>
       <p><strong>Default Branch:</strong> {{ rep.default_branch }}</p>
+      <br>
+      <div *ngIf="rep.languages">
+        <h3>Languages:</h3>
+        <ul>
+          <li *ngFor="let language of rep.languages">
+            {{ language.name }}: {{ language.percentage }}%
+          </li>
+        </ul>
+      </div>
     </ion-card-content>
   </ion-card>
 </ion-content>
@@ -45,10 +56,19 @@
     back
   </ion-button>
 
+  <h3><strong>Name:</strong> {{ infoRepo.name }} </h3>
+  <p><strong>Description:</strong> {{ infoRepo.description }}</p>
   <p><strong>Branches:</strong> {{ infoRepo.branches.join(', ') }}</p>
   <p><strong>Languages:</strong> {{ infoRepo.languages.join(', ') }}</p>
   <p><strong>Created At:</strong> {{ infoRepo.created_at | date:'medium' }}</p>
   <p><strong>Pushed At:</strong> {{ infoRepo.pushed_at | date:'medium' }}</p>
+
+  <h3>Languages:</h3>
+  <ul>
+    <li *ngFor="let language of infoRepo.languages">
+      {{ language.name }}: {{ language.percentage }}%
+    </li>
+  </ul>
 
   <p><strong>Pull Requests:</strong></p>
       <ul>
@@ -79,7 +99,7 @@
   </ion-item>
 </ion-content>
 
-<ion-item>
+<ion-footer>
   <ion-toolbar>
     <div id="footer-icons">
       <ion-icon name="mail-outline"></ion-icon>
@@ -88,4 +108,4 @@
       <ion-icon name="logo-linkedin" (click)="goLinkedin()"></ion-icon>
     </div>
   </ion-toolbar>
-</ion-item>
+</ion-footer>
