@@ -39,7 +39,6 @@
       <p><strong>Default Branch:</strong> {{ rep.default_branch }}</p>
       <p><strong>Description:</strong> {{ rep.description }}</p>
     </ion-card-content>
-    <app-circle-data></app-circle-data>
   </ion-card>
 </ion-content>
 
@@ -58,6 +57,8 @@
       {{ language.name }}: {{ language.percentage }}%
     </li>
   </ul>
+
+  <app-circle-data></app-circle-data>
 
   <ul *ngIf="infoRepo.pulls && infoRepo.pulls.length !== 0">
     <p><strong>Pull Requests:</strong></p>
