@@ -24,33 +24,52 @@ export class CircleDataComponent implements OnInit, AfterViewInit {
         const option = {
             title: {
                 text: 'Languages Usage',
-                subtext: 'in percentage',
-                left: 'center'
+                // subtext: 'Percentage of Code in Each Language',
+                left: 'center',
+                top: 'top',
+                textStyle: {
+                    fontSize: 20,
+                    fontWeight: 'bold',
+                    color: '#333'
+                },
+                subtextStyle: {
+                    fontSize: 14,
+                    color: '#666'
+                }
             },
             tooltip: {
                 trigger: 'item',
                 formatter: '{b}: {d}%'
             },
             legend: {
-                orient: 'vertical',
-                left: 'left'
+                orient: 'horizontal',
+                left: 'center',
+                bottom: '0',
+                itemWidth: 10,
+                itemHeight: 10,
+                textStyle: {
+                    fontSize: 14
+                }
             },
             series: [
                 {
                     name: 'Languages',
                     type: 'pie',
-                    radius: '50%',
+                    radius: ['40%', '70%'], // Inner and outer radius
+                    avoidLabelOverlap: false,
+                    label: {
+                        show: true,
+                        position: 'outside',
+                        formatter: '{b}',
+                        fontSize: 14
+                    },
+                    labelLine: {
+                        show: true
+                    },
                     data: this.languages.map(lang => ({
                         value: parseFloat(lang.percentage),
                         name: lang.name
                     })),
-                    emphasis: {
-                        itemStyle: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                        }
-                    }
                 }
             ]
         };

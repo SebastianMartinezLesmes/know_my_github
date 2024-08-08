@@ -16,13 +16,38 @@
 }
 
 /*encabezado de la card del usuario*/
-#header_card_user{
+#userInfo{
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#header_card_user{
+    // margin: 10%;
+    display: flex;
     flex-wrap: wrap;
     align-items: center;
     ion-avatar{
         margin: 1%;
+    }
+}
+
+/* issues and pulls*/
+#issue_and_pulls{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    #pulls{
+        flex:1;
+        background: blue;
+    }
+    #issues{
+        flex:1;
+        background: red;
+        li{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
     }
 }
 
