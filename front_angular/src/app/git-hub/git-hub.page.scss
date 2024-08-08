@@ -18,35 +18,58 @@
 /*encabezado de la card del usuario*/
 #userInfo{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
+    div{
+        flex: 1;
+    }
 }
 #header_card_user{
-    // margin: 10%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    ion-avatar{
-        margin: 1%;
+    justify-content: center;
+    div{
+        flex: 0.5;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
     }
 }
 
 /* issues and pulls*/
 #issue_and_pulls{
+    color: black;
     display: flex;
-    justify-content: space-evenly;
     flex-wrap: wrap;
-    #pulls{
-        flex:1;
-        background: blue;
+    justify-content: space-evenly;
+    .title{
+        color: white;
+        width: 100%;
+        text-align: center;
     }
-    #issues{
-        flex:1;
+    #pulls {
+        flex: 1;
+        background: blue;
+        .pull_item{
+            background-color: purple;
+            padding: 1%;
+        }
+    }
+
+    #issues {
+        flex: 1;
         background: red;
-        li{
+        .issue_item{
+            background: orangered;
             display: flex;
-            justify-content: space-between;
             flex-wrap: wrap;
+            justify-content: space-evenly;
+            div{
+                flex: 1;
+                padding: 1%;
+            }
         }
     }
 }

@@ -3,12 +3,12 @@ import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 interface Languages {
-  [key: string]: number; // Nombre del lenguaje como clave y el número de líneas como valor
+  [key: string]: number;
 }
 
 interface LanguagePercentage {
   name: string;
-  percentage: string; // El porcentaje como string con dos decimales
+  percentage: string;
 }
 
 @Component({
@@ -249,5 +249,6 @@ export class GitHubPage implements OnInit {
         repo.name.toLowerCase().includes(searchTerm)
       );
     }
-  }
+  } 
+
 }

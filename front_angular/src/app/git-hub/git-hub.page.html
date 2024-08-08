@@ -9,8 +9,8 @@
 
 <ion-content [fullscreen]="true" *ngIf="window === 'repositories'">
   <ion-card id="userInfo">
-    <div>
-      <div id="header_card_user">
+    <div id="header_card_user">
+      <div>
         <ion-avatar slot="start">
           <img [src]="user.avatar_url" alt="Profile Image">
         </ion-avatar>
@@ -19,11 +19,12 @@
           <p>{{ user.login }}</p>
         </ion-label>
       </div>
+      
     </div>
     <div>
       <p><strong>Bio:</strong> {{ user.bio }}</p>
-      <p><strong>Public Repos:</strong> {{ infoRepo }}</p>
       <p><strong>Created At:</strong> {{ user.created_at | date:'medium' }}</p>
+      <p><strong>Public Repos:</strong> {{ filteredRepos.length }}</p>
     </div>
   </ion-card>
 
@@ -52,28 +53,35 @@
   <p *ngIf="infoRepo.pushed_at"><strong>Pushed At:</strong> {{ infoRepo.pushed_at | date:'medium' }}</p>
 
   <app-circle-data [languages]="infoRepo.languages" *ngIf="infoRepo.languages && infoRepo.languages.length !== 0"></app-circle-data>
-
-  <div id="issue_and_pulls">
-    <ul *ngIf="infoRepo.pulls && infoRepo.pulls.length !== 0" id="pulls">
-      <p><strong>Pull Requests:</strong></p>
-      <div class="list-container">
-        <li *ngFor="let pull of infoRepo.pulls" class="list-item">
-          <p><strong>Title:</strong> {{ pull.title }}</p>
-          <p><strong>Created At:</strong> {{ pull.created_at | date:'medium' }}</p>
-        </li>
-      </div>
-    </ul>
-    
+  <app-bar-data></app-bar-data>
   
-    <ul *ngIf="infoRepo.issues && infoRepo.issues.length !== 0" id="issues">
-      <p><strong>Issues:</strong></p>
-      <li *ngFor="let issue of infoRepo.issues">
-        <p><strong>Title:</strong> {{ issue.title }}</p>
-        <p><strong>State:</strong> {{ issue.state }}</p>
-        <p><strong>Created At:</strong> {{ issue.created_at | date:'medium' }}</p>
-        <p><strong>Closed At At:</strong> {{ issue.closed_at | date:'medium' }}</p>
-      </li>
-    </ul>
+  <div id="issue_and_pulls">
+    <div id="pulls" *ngIf="infoRepo.pulls && infoRepo.pulls.length !== 0">
+      <div class="title">
+        <p><strong>Pull Requests:</strong></p>
+      </div>
+      <ion-card *ngFor="let pull of infoRepo.pulls" class="pull_item">
+        <p><strong>Title:</strong> {{ pull.title }}</p>
+        <p><strong>Created At:</strong> {{ pull.created_at | date:'medium' }}</p>
+      </ion-card>
+    </div>
+
+  
+    <div id="issues" *ngIf="infoRepo.issues && infoRepo.issues.length !== 0" >
+      <div class="title">
+        <p><strong>Issues:</strong></p>
+      </div>
+      <ion-card *ngFor="let issue of infoRepo.issues" class="issue_item">
+        <div>
+          <p><strong>Created At:</strong> {{ issue.created_at | date:'medium' }}</p>
+          <p><strong>Closed At At:</strong> {{ issue.closed_at | date:'medium' }}</p>
+        </div>
+        <div>
+          <p><strong>Title:</strong> {{ issue.title }}</p>
+          <p><strong>State:</strong> {{ issue.state }}</p>
+        </div>
+      </ion-card>
+    </div>
   </div>
 
   <div *ngIf="infoRepo.contributions && infoRepo.contributions.length !== 0">

@@ -7,6 +7,7 @@ import { BackendGraphicComponentComponent } from "./backend-graphic-component/ba
 import { DatabaseGraphicComponentComponent } from "./database-graphic-component/database-graphic-component.component";
 import { EchartsComponent } from "./echarts/echarts.component";
 import { CircleDataComponent } from "./circle-data/circle-data.component"
+import { BarDataComponent } from './bar-data/bar-data.component'
 
 @NgModule({
     declarations: [
@@ -15,6 +16,7 @@ import { CircleDataComponent } from "./circle-data/circle-data.component"
         DatabaseGraphicComponentComponent,
         EchartsComponent,
         CircleDataComponent,
+        BarDataComponent,
     ],
     exports: [
         FrontendGraphicComponentComponent,
@@ -22,6 +24,7 @@ import { CircleDataComponent } from "./circle-data/circle-data.component"
         DatabaseGraphicComponentComponent,
         EchartsComponent,
         CircleDataComponent,
+        BarDataComponent,
     ],
     imports: [
         CommonModule,
