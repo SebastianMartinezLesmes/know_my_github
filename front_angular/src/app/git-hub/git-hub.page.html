@@ -58,7 +58,7 @@
     </li>
   </ul>
 
-  <app-circle-data></app-circle-data>
+  <app-circle-data [languages]="infoRepo.languages"></app-circle-data>
 
   <ul *ngIf="infoRepo.pulls && infoRepo.pulls.length !== 0">
     <p><strong>Pull Requests:</strong></p>
