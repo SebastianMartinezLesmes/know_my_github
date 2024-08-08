@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { GitHubPageRoutingModule } from './git-hub-routing.module';
 
 import { GitHubPage } from './git-hub.page';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    GitHubPageRoutingModule
+    GitHubPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [GitHubPage]
 })

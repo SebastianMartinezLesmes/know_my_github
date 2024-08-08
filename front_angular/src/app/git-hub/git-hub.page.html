@@ -39,6 +39,7 @@
       <p><strong>Default Branch:</strong> {{ rep.default_branch }}</p>
       <p><strong>Description:</strong> {{ rep.description }}</p>
     </ion-card-content>
+    <app-circle-data></app-circle-data>
   </ion-card>
 </ion-content>
 
@@ -51,23 +52,23 @@
   <p *ngIf="infoRepo.created_at"><strong>Created At:</strong> {{ infoRepo.created_at | date:'medium' }}</p>
   <p *ngIf="infoRepo.pushed_at"><strong>Pushed At:</strong> {{ infoRepo.pushed_at | date:'medium' }}</p>
 
-  <h3 *ngIf="infoRepo.languages.lenght > 0">Languages:</h3>
-  <ul *ngIf="infoRepo.languages">
+  <ul *ngIf="infoRepo.languages && infoRepo.languages.length !== 0">
+    <h3>Languages:</h3>
     <li *ngFor="let language of infoRepo.languages">
       {{ language.name }}: {{ language.percentage }}%
     </li>
   </ul>
 
-  <p *ngIf="infoRepo.pulls.lenght > 0"><strong>Pull Requests:</strong></p>
-  <ul *ngIf="infoRepo.pulls">
+  <ul *ngIf="infoRepo.pulls && infoRepo.pulls.length !== 0">
+    <p><strong>Pull Requests:</strong></p>
     <li *ngFor="let pull of infoRepo.pulls">
       <p><strong>Title:</strong> {{ pull.title }}</p>
       <p><strong>Created At:</strong> {{ pull.created_at | date:'medium' }}</p>
     </li>
   </ul>
 
-  <p *ngIf="infoRepo.issues.lenght > 0"><strong>Issues:</strong></p>
-  <ul *ngIf="infoRepo.issues">
+  <ul *ngIf="infoRepo.issues && infoRepo.issues.length !== 0">
+    <p><strong>Issues:</strong></p>
     <li *ngFor="let issue of infoRepo.issues">
       <p><strong>Title:</strong> {{ issue.title }}</p>
       <p><strong>State:</strong> {{ issue.state }}</p>
@@ -76,8 +77,8 @@
     </li>
   </ul>
 
-  <p *ngIf="infoRepo.contributions.lenght > 0"><strong>Contributors:</strong></p>
-  <div *ngIf="infoRepo.contributions">
+  <div *ngIf="infoRepo.contributions && infoRepo.contributions.length !== 0">
+    <p><strong>Contributors:</strong></p>
     <ion-item *ngFor="let con of infoRepo.contributions">
       <ion-avatar slot="start">
         <img [src]="con.avatar_url" alt="Collaborator Image">
