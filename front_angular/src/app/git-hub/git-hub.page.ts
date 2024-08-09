@@ -42,6 +42,7 @@ export class GitHubPage implements OnInit {
       this.window = 'dataRepo';
     } else {
       this.window = 'repositories';
+      this.filteredRepos = [...this.repos];
     }
   }
 

@@ -15,11 +15,10 @@
           <img [src]="user.avatar_url" alt="Profile Image">
         </ion-avatar>
         <ion-label>
-          <h2>{{ user.name }}</h2>
-          <p>{{ user.login }}</p>
+          <p>{{ user.name }}</p>
+          <span>{{ user.login }}</span>
         </ion-label>
       </div>
-      
     </div>
     <div>
       <p><strong>Bio:</strong> {{ user.bio }}</p>
@@ -32,15 +31,17 @@
     <ion-searchbar (ionInput)="filterRepos($event)" show-clear-button="always"></ion-searchbar>
   </ion-card>
 
-  <ion-card *ngFor="let rep of filteredRepos" (click)="getInfoRepo(rep)">
-    <ion-card-header>
-      {{ rep.name }}
-    </ion-card-header>
-    <ion-card-content>
-      <p><strong>Default Branch:</strong> {{ rep.default_branch }}</p>
-      <p><strong>Description:</strong> {{ rep.description }}</p>
-    </ion-card-content>
-  </ion-card>
+  <div id="repos">
+    <ion-card *ngFor="let rep of filteredRepos" (click)="getInfoRepo(rep)">
+      <ion-card-header>
+        {{ rep.name }}
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>Default Branch:</strong> {{ rep.default_branch }}</p>
+        <p><strong>Description:</strong> {{ rep.description }}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
 
 <ion-content [fullscreen]="true" *ngIf="window === 'dataRepo'">
@@ -54,7 +55,7 @@
 
   <app-circle-data [languages]="infoRepo.languages" *ngIf="infoRepo.languages && infoRepo.languages.length !== 0"></app-circle-data>
   <app-bar-data></app-bar-data>
-  
+
   <div id="issue_and_pulls">
     <div id="pulls" *ngIf="infoRepo.pulls && infoRepo.pulls.length !== 0">
       <div class="title">
