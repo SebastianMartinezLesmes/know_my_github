@@ -9,6 +9,7 @@
         background:linear-gradient(to top, transparent ,rgba(255, 0, 0, 0.494));
     }
     ion-title{
+        margin-right: 8%;
         font-size: 2.5vw;
         font-family: bold;
         font-weight: bold;
@@ -138,6 +139,8 @@ ion-searchbar{
     #header{
         ion-title{
             font-size: 4vw;
+            font-weight: bold;
+            margin-right: 16%;
         }
     }
     #userInfo{
@@ -187,6 +190,5 @@ ion-searchbar{
         justify-content: space-evenly;
         font-size: 1.3rem;
         gap: 1rem;
-        color: white;
     }
 }

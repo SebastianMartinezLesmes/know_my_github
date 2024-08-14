@@ -54,7 +54,7 @@
   <p *ngIf="infoRepo.pushed_at"><strong>Pushed At:</strong> {{ infoRepo.pushed_at | date:'medium' }}</p>
 
   <app-circle-data [languages]="infoRepo.languages" *ngIf="infoRepo.languages && infoRepo.languages.length !== 0"></app-circle-data>
-  <app-bar-data></app-bar-data>
+  <!-- <app-bar-data></app-bar-data> -->
 
   <div id="issue_and_pulls">
     <div id="pulls" *ngIf="infoRepo.pulls && infoRepo.pulls.length !== 0">
@@ -67,7 +67,6 @@
       </ion-card>
     </div>
 
-  
     <div id="issues" *ngIf="infoRepo.issues && infoRepo.issues.length !== 0" >
       <div class="title">
         <p><strong>Issues:</strong></p>
@@ -93,9 +92,10 @@
       </ion-avatar>
       <ion-label> {{ con.login }} </ion-label>
       <ion-label slot="end"> {{ con.contributions }} </ion-label>
-      implement here a Bar of EchartsJS
     </ion-item>
   </div>
+
+  <app-bar-data></app-bar-data>
 </ion-content>
 
 <ion-footer>
