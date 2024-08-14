@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-bar-data',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BarDataComponent implements OnInit {
 
+  @Input() contributors: any[] = []; // Recibe los datos de los contribuidores
   chartOptions: any;
 
   constructor() { }
@@ -15,25 +16,32 @@ export class BarDataComponent implements OnInit {
     this.initChart();
   }
 
+  ngOnChanges(): void {
+    this.initChart(); // Vuelve a inicializar el gráfico si cambian los datos
+  }
+
   initChart(): void {
+    const names = this.contributors.map(con => con.login);
+    const data = this.contributors.map(con => con.contributions);
+
     this.chartOptions = {
       title: {
-        text: 'Bar Chart Example',
+        text: 'Contributions by Contributors',
         subtext: 'ECharts Example',
         left: 'center'
       },
       tooltip: {},
       xAxis: {
-        type: 'value' // Eje X es ahora de tipo 'value' para barras horizontales
+        type: 'value'
       },
       yAxis: {
-        type: 'category', // Eje Y es ahora de tipo 'category'
-        data: ['Apples', 'Bananas', 'Pears', 'Oranges', 'Grapes']
+        type: 'category',
+        data: names
       },
       series: [{
-        name: 'Fruits',
+        name: 'Contributions',
         type: 'bar',
-        data: [5, 20, 46, 10, 10]
+        data: data
       }]
     };
   }

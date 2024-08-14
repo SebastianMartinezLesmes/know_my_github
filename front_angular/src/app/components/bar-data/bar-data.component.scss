@@ -1,8 +1,10 @@
-div{
-    background: red;
+.chart {
+    margin: 2%;
+    width: 108vw; 
+    height: 400px; 
 }
 
-.chart {
-    width: 100vw;
-    height: 400px;
+#bar {
+    // background: red;
+    width: 100%; 
 }
