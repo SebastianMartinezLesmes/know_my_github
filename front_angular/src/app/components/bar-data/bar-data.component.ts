@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class BarDataComponent implements OnInit {
 
-  @Input() contributors: any[] = []; // Recibe los datos de los contribuidores
+  @Input() contributors: any[] = []; 
   chartOptions: any;
 
   constructor() { }
@@ -23,7 +23,7 @@ export class BarDataComponent implements OnInit {
   initChart(): void {
     const names = this.contributors.map(con => con.login);
     const data = this.contributors.map(con => con.contributions);
-
+  
     this.chartOptions = {
       title: {
         text: 'Contributions by Contributors',
@@ -41,8 +41,13 @@ export class BarDataComponent implements OnInit {
       series: [{
         name: 'Contributions',
         type: 'bar',
-        data: data
+        data: data,
+        label: {
+          show: true,          // Muestra las etiquetas
+          position: 'right',   // Posiciona las etiquetas a la derecha de las barras
+          formatter: '{c}'     // Muestra el valor de la barra (c es el valor)
+        }
       }]
     };
-  }
+  }  
 }
