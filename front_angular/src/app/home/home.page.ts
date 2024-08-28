@@ -8,6 +8,34 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
+  jobs = [
+    {
+      company: 'Sena',
+      period: 'jun/2022 - dic/2023',
+      position: 'Aprendiz'
+    },
+    {
+      company: 'Grupo-ASD',
+      period: 'dic/2023 - jun/2024',
+      position: 'Analista y desarrollador de software'
+    },
+  ];  
+
+  references = [
+    {
+      name: 'Gonzalo Augusto Salgado Cadavid',
+      title: 'Desarrollador Front-End',
+      phone: '3188386080',
+      email: 'gsalgado@grupoasd.com.co'
+    },
+    {
+      name: 'Jair Rojas Pineda',
+      title: 'DevOps Engineer AWS',
+      phone: '3197604000',
+      email: 'jrojpin@gmail.com'
+    },
+  ]
+
   constructor(
     private router:Router
   ) {}
