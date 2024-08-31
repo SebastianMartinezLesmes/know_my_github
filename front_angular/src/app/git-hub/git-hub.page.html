@@ -47,14 +47,19 @@
 <ion-content [fullscreen]="true" *ngIf="window === 'dataRepo'">
   <ion-button (click)="ChangeWindow()"> volver </ion-button>
 
-  <h3 *ngIf="infoRepo.name"><strong>Name:</strong> {{ infoRepo.name }} </h3>
-  <p *ngIf="infoRepo.description"><strong>Description:</strong> {{ infoRepo.description }}</p>
-  <p *ngIf="infoRepo.branches"><strong>Branches:</strong> {{ infoRepo.branches.join(', ') }}</p>
-  <p *ngIf="infoRepo.created_at"><strong>Created At:</strong> {{ infoRepo.created_at | date:'medium' }}</p>
-  <p *ngIf="infoRepo.pushed_at"><strong>Pushed At:</strong> {{ infoRepo.pushed_at | date:'medium' }}</p>
+  <ion-card id="data_repo">
+    <h3 *ngIf="infoRepo.name"><strong>Name:</strong> {{ infoRepo.name }} </h3>
+    <div id="top-info">
+      <p *ngIf="infoRepo.branches"><strong>Branches:</strong> {{ infoRepo.branches.join(', ') }}</p>
+      <p *ngIf="infoRepo.created_at"><strong>Created At:</strong> {{ infoRepo.created_at | date:'medium' }}</p>
+      <p *ngIf="infoRepo.pushed_at"><strong>Pushed At:</strong> {{ infoRepo.pushed_at | date:'medium' }}</p>
+    </div>
+    <div id="description">
+      <p *ngIf="infoRepo.description"><strong>Description:</strong> {{ infoRepo.description }}</p>
+    </div>
+  </ion-card>  
 
   <app-circle-data [languages]="infoRepo.languages" *ngIf="infoRepo.languages && infoRepo.languages.length !== 0"></app-circle-data>
-  <!-- <app-bar-data></app-bar-data> -->
 
   <div id="issue_and_pulls">
     <div id="pulls" *ngIf="infoRepo.pulls && infoRepo.pulls.length !== 0">
@@ -85,17 +90,20 @@
   </div>
 
   <div *ngIf="infoRepo.contributions && infoRepo.contributions.length !== 0">
-    <p><strong>Contributors:</strong></p>
-    <ion-item *ngFor="let con of infoRepo.contributions">
-      <ion-avatar slot="start">
-        <img [src]="con.avatar_url" alt="Collaborator Image">
-      </ion-avatar>
-      <ion-label> {{ con.login }} </ion-label>
-      <ion-label slot="end"> {{ con.contributions }} </ion-label>
-    </ion-item>
+    <ion-card>
+      <p><strong>Contributors:</strong></p>
+      <ion-item *ngFor="let con of infoRepo.contributions">
+        <ion-avatar slot="start">
+          <img [src]="con.avatar_url" alt="Collaborator Image">
+        </ion-avatar>
+        <ion-label> {{ con.login }} </ion-label>
+        <ion-label slot="end"> {{ con.contributions }} </ion-label>
+      </ion-item>
+
+      <app-bar-data [contributors]="infoRepo.contributions"></app-bar-data>
+    </ion-card>
   </div>
 
-  <app-bar-data [contributors]="infoRepo.contributions"></app-bar-data>
 </ion-content>
 
 <ion-footer>

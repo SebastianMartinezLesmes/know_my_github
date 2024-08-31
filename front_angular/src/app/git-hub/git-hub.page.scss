@@ -1,4 +1,4 @@
-/* Encabezado */
+/* Header */
 #header{
     display: flex;
     justify-content: center;
@@ -16,7 +16,7 @@
     }
 }
 
-/*encabezado de la card del usuario*/
+/*Header of the user's card*/
 #userInfo{
     display: flex;
     flex-wrap: wrap;
@@ -59,7 +59,7 @@
     }
 }
 
-/*barra de busqueda*/
+/*Search bar*/
 ion-searchbar{
     --font-size: 1.3vw;
 }
@@ -84,6 +84,30 @@ ion-searchbar{
                 font-size: 1vw;
             }
         }
+    }
+}
+
+// Specific data card for a repository
+#data_repo {
+    display: flex;
+    flex-direction: column;
+    padding: 0.8%;
+
+    h3 {
+        text-align: center;
+        margin-bottom: 10px;
+        color: white;
+    }
+    
+    #top-info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+    
+    #description {
+        text-align: center;
     }
 }
 
@@ -122,7 +146,7 @@ ion-searchbar{
     }
 }
 
-/* Pie de página */
+/* Footer */
 #footer-icons {
     display: flex;
     flex-direction: row;
@@ -134,7 +158,7 @@ ion-searchbar{
     }
 }
 
-/* Media Queries */
+/* mobile measurements */
 @media (max-width: 768px) {
     #header{
         ion-title{
@@ -183,6 +207,15 @@ ion-searchbar{
                 }
             }
         }
+    }
+    #data_repo {
+        #description {
+            text-align: start;
+        }
+    }
+    /* issues and pulls*/
+    #issue_and_pulls{
+        flex-direction: column;
     }
     #footer-icons {
         display: flex;

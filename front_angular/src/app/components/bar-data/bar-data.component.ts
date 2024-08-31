@@ -25,18 +25,21 @@ export class BarDataComponent implements OnInit {
     const data = this.contributors.map(con => con.contributions);
   
     this.chartOptions = {
-      title: {
-        text: 'Contributions by Contributors',
-        subtext: 'ECharts Example',
-        left: 'center'
-      },
+      // title: {
+      //   text: 'Contributions by Contributors',
+      //   subtext: 'Tap the bar to get more information',
+      //   left: 'center'
+      // },
       tooltip: {},
       xAxis: {
         type: 'value'
       },
       yAxis: {
         type: 'category',
-        data: names
+        data: names,
+        axisLabel: {
+          rotate: 45 // Gira las etiquetas 45 grados. Puedes ajustar el valor.
+        }
       },
       series: [{
         name: 'Contributions',
