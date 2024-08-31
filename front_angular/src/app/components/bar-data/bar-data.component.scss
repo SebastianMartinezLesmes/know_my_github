@@ -1,16 +1,16 @@
-.chart {
-    width: 100vw; 
-    height: 300px; 
-}
-
 #bar {
     width: 100%; 
     margin: 0.5%;
 }
 
+.chart {
+    width: 100vw; 
+    height: 300px; 
+}
+
 @media (max-width: 768px) {
     .chart {
-        width: 110vw;
-        left: -5%;
+        width: 100vw;
+        left: 5%;
     }
 }
