@@ -124,17 +124,13 @@ ion-searchbar{
     }
     #pulls {
         flex: 1;
-        background: blue;
         .pull_item{
-            background-color: purple;
             padding: 1%;
         }
     }
     #issues {
         flex: 1;
-        background: red;
         .issue_item{
-            background: orangered;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-evenly;
