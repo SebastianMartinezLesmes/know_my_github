@@ -130,6 +130,22 @@
     }
 }
 
+#certificates{
+    margin: 1%;
+    border: solid 1px white;
+    border-radius: 5px;
+    height: 38vw;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    ion-card{
+        width: 40%;
+        border: 2px black;
+    }
+}
+
 /* Pie de página */
 ion-footer {
     background-color: rgb(148,148,148);

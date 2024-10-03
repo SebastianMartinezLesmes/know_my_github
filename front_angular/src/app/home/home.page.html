@@ -6,111 +6,126 @@
 
 <ion-content [fullscreen]="true">
 
-    <div id="arriba">
-      <img id="profile_img" src="../../assets/programer.jpg" alt="Programer img">
-      <div id="profile_info">
-        <h1>Juan Sebastian Martinez Lesmes</h1>
-        <h4>Analista y desarrollador de software</h4>
-      </div>
+  <div id="arriba">
+    <img id="profile_img" src="../../assets/programer.jpg" alt="Programer img">
+    <div id="profile_info">
+      <h1>Juan Sebastian Martinez Lesmes</h1>
+      <h4>Analista y desarrollador de software</h4>
     </div>
+  </div>
 
-    <div id="medio">
-      <div class="section">
-        <ion-accordion-group>
-          <ion-accordion>
-            <ion-item slot="header">
-              <ion-label>¿Quién soy?</ion-label>
-            </ion-item>
-            <div id="content_presentation" slot="content">
-              <p>
-                Soy un analista y desarrollador de software con 2 años de experiencia en desarrollo frontend, utilizando frameworks como Ionic, AngularJS y ReactJS, así como lenguajes como HTML, CSS, JavaScript y TypeScript. <br>
-                Además, cuento con 1 año de experiencia en desarrollo backend, trabajando con frameworks como FastAPI y Express, y lenguajes como JavaScript y Python. También tengo experiencia en bases de datos relacionales como MySQL y no relacionales como MongoDB. <br>
-                Me apasiona el aprendizaje continuo, enfrentar nuevos retos y resolver acertijos mentales. <br>
-                Colombiano con español nativo he ingles basico.
-              </p>
-              <app-echarts></app-echarts>
-            </div>
-          </ion-accordion>
-        </ion-accordion-group>
-      </div>
-
-      <div class="section">
-        <ion-accordion-group>
-          <ion-accordion>
-            <ion-item slot="header">
-              <ion-label>Estudios</ion-label>
-            </ion-item>
-            <div slot="content">
+  <div id="medio">
+    <div class="section">
+      <ion-accordion-group>
+        <ion-accordion>
+          <ion-item slot="header">
+            <ion-label>¿Quién soy?</ion-label>
+          </ion-item>
+          <div id="content_presentation" slot="content">
+            <p>
+              Soy un analista y desarrollador de software con 2 años de experiencia en desarrollo frontend, utilizando frameworks como Ionic, AngularJS y ReactJS, así como lenguajes como HTML, CSS, JavaScript y TypeScript. <br>
+              Además, cuento con 1 año de experiencia en desarrollo backend, trabajando con frameworks como FastAPI y Express, y lenguajes como JavaScript y Python. También tengo experiencia en bases de datos relacionales como MySQL y no relacionales como MongoDB. <br>
+              Me apasiona el aprendizaje continuo, enfrentar nuevos retos y resolver acertijos mentales. <br>
+              Colombiano con español nativo he ingles basico.
+            </p>
+            <app-echarts></app-echarts>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </div>
+    
+    <div>
+      <ion-accordion-group>
+        <ion-accordion>
+          <ion-item slot="header">
+            <ion-label>Estudios</ion-label>
+          </ion-item>
+          <div slot="content">
+            <ion-button (click)="changeLearn('studies')">Estudios</ion-button>
+            <ion-button (click)="changeLearn('certificates')">Certificados</ion-button>
+            <div slot="content" *ngIf="learn === 'studies'">
               <ion-item>Primaria: Marie Curie 2010 - 2015</ion-item>
               <ion-item>Secundaria: Casablanca 2016 - 2021</ion-item>
               <ion-item>Educación Superior: Sena (Tecnólogo: análisis y desarrollo de software) 2022 - 2024</ion-item>
             </div>
-          </ion-accordion>
-        </ion-accordion-group>
-      </div>
-      
-      <div class="section">
-        <ion-accordion-group>
-          <ion-accordion>
-            <ion-item slot="header">
-              <ion-label><h3> Experiencia </h3></ion-label>
-            </ion-item>
-            <div slot="content" id="experiencia">
-              <div id="botones_experiencia" *ngIf="experience_call === 'jobs'">
-                <ion-button (click)="experience_jobs()" id="trabajos">Trabajos</ion-button>
-                <ion-button (click)="experience_reference()">Referencias</ion-button>
-              </div>
-              <div id="botones_experiencia" *ngIf="experience_call === 'reference'">
-                <ion-button (click)="experience_jobs()">Trabajos</ion-button>
-                <ion-button (click)="experience_reference()" id="referencias">Referencias</ion-button>
-              </div>
-
-              <div id="cards_experiencia" *ngIf="experience_call === 'jobs'">
-                <ion-card class="card_experiencia" *ngFor="let job of jobs">
-                  <ion-card-title>{{ job.company }}</ion-card-title>
-                  <ion-card-subtitle>{{ job.period }}</ion-card-subtitle>
-                  <ion-card-content>{{ job.position }}</ion-card-content>
-                </ion-card>
-              </div>
-              <div id="cards_experiencia" *ngIf="experience_call === 'reference'">
-                <ion-card *ngFor="let reference of references" class="card_experiencia">
-                  <ion-card-title>{{ reference.name }}</ion-card-title>
-                  <ion-card-subtitle>{{ reference.title }}</ion-card-subtitle>
-                  <ion-card-content>
-                    Cel: {{ reference.phone }}
-                    <br>
-                    Email: {{ reference.email }}
-                  </ion-card-content>
-                </ion-card>
-              </div>
-            </div>
-          </ion-accordion>
-        </ion-accordion-group>
-      </div>
-
-      <div class="section">
-        <ion-accordion-group>
-          <ion-accordion>
-            <ion-item slot="header">
-              <ion-label><h3> Lenguajes de programación que manejo </h3></ion-label>
-            </ion-item>
-            <div slot="content" id="content_graphics">
-              <div lines="none" id="button-group">
-                <ion-button (click)="graphicfront()">Frontend lenguajes</ion-button>
-                <ion-button (click)="graphicBack()">Backend lenguajes</ion-button>
-                <ion-button (click)="graphicdataBase()">Databases lenguajes</ion-button>
-              </div>
-              <ion-card id="graphics">
-                <h3>Gráfica de {{graphic}} :</h3>
-                <app-backend-graphic-component *ngIf="graphic === 'back'"></app-backend-graphic-component>
-                <app-frontend-graphic-component *ngIf="graphic === 'front'"></app-frontend-graphic-component>
-                <app-database-graphic-component *ngIf="graphic === 'database'"></app-database-graphic-component>
+            <div id="certificates" *ngIf="learn === 'certificates'">
+              <ion-card *ngFor="let cer of certificates">
+                <img [src]="cer.direction" [alt]="cer.title">
+                <ion-card-header>
+                  <ion-card-title>{{ cer.title }}</ion-card-title>
+                  <ion-card-subtitle>{{ cer.institution }}</ion-card-subtitle>
+                </ion-card-header>
               </ion-card>
             </div>
-          </ion-accordion>
-        </ion-accordion-group>
-      </div>
+
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
     </div>
+    
+    <div class="section">
+      <ion-accordion-group>
+        <ion-accordion>
+          <ion-item slot="header">
+            <ion-label><h3> Experiencia </h3></ion-label>
+          </ion-item>
+          <div slot="content" id="experiencia">
+            <div id="botones_experiencia" *ngIf="experience_call === 'jobs'">
+              <ion-button (click)="experience_jobs()" id="trabajos">Trabajos</ion-button>
+              <ion-button (click)="experience_reference()">Referencias</ion-button>
+            </div>
+            <div id="botones_experiencia" *ngIf="experience_call === 'reference'">
+              <ion-button (click)="experience_jobs()">Trabajos</ion-button>
+              <ion-button (click)="experience_reference()" id="referencias">Referencias</ion-button>
+            </div>
+
+            <div id="cards_experiencia" *ngIf="experience_call === 'jobs'">
+              <ion-card class="card_experiencia" *ngFor="let job of jobs">
+                <ion-card-title>{{ job.company }}</ion-card-title>
+                <ion-card-subtitle>{{ job.period }}</ion-card-subtitle>
+                <ion-card-content>{{ job.position }}</ion-card-content>
+              </ion-card>
+            </div>
+            <div id="cards_experiencia" *ngIf="experience_call === 'reference'">
+              <ion-card *ngFor="let reference of references" class="card_experiencia">
+                <ion-card-title>{{ reference.name }}</ion-card-title>
+                <ion-card-subtitle>{{ reference.title }}</ion-card-subtitle>
+                <ion-card-content>
+                  Cel: {{ reference.phone }}
+                  <br>
+                  Email: {{ reference.email }}
+                </ion-card-content>
+              </ion-card>
+            </div>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </div>
+
+    <div class="section">
+      <ion-accordion-group>
+        <ion-accordion>
+          <ion-item slot="header">
+            <ion-label><h3> Lenguajes de programación que manejo </h3></ion-label>
+          </ion-item>
+          <div slot="content" id="content_graphics">
+            <div lines="none" id="button-group">
+              <ion-button (click)="graphicfront()">Frontend lenguajes</ion-button>
+              <ion-button (click)="graphicBack()">Backend lenguajes</ion-button>
+              <ion-button (click)="graphicdataBase()">Databases lenguajes</ion-button>
+            </div>
+            <ion-card id="graphics">
+              <h3>Gráfica de {{graphic}} :</h3>
+              <app-backend-graphic-component *ngIf="graphic === 'back'"></app-backend-graphic-component>
+              <app-frontend-graphic-component *ngIf="graphic === 'front'"></app-frontend-graphic-component>
+              <app-database-graphic-component *ngIf="graphic === 'database'"></app-database-graphic-component>
+            </ion-card>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </div>
+  </div>
+    
 </ion-content>
 
 <ion-item>

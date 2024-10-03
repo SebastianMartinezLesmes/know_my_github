@@ -36,12 +36,65 @@ export class HomePage {
     },
   ]
 
+  certificates = [
+    {
+      direction: '../../assets/certificates/AWS Certificate.png',
+      title: 'AWS Certificate',
+      institution: 'Amazon Web Services'
+    },
+    {
+      direction: '../../assets/certificates/DESARROLLO WEB Certificate.png',
+      title: 'Desarrollo Web Certificate',
+      institution: 'Edutin Academy'
+    },
+    {
+      direction: '../../assets/certificates/ANGULAR Certificate.png',
+      title: 'Angular Certificate',
+      institution: 'Mind Luster'
+    },
+    {
+      direction: '../../assets/certificates/REACT Certificate.png',
+      title: 'React Certificate',
+      institution: 'Mind Luster'
+    },
+    {
+      direction: '../../assets/certificates/HTML Certificate.png',
+      title: 'HTML Certificate',
+      institution: 'Mind Luster'
+    },
+    {
+      direction: '../../assets/certificates/IONIC MOVIL APP Certificate.png',
+      title: 'Ionic Mobile App Development Certificate',
+      institution: 'Mind Luster'
+    },
+    {
+      direction: '../../assets/certificates/LESS Certificate.png',
+      title: 'LESS Certificate',
+      institution: 'Mind Luster'
+    },
+    {
+      direction: '../../assets/certificates/SCSS Certificate.png',
+      title: 'SCSS Certificate',
+      institution: 'Mind Luster'
+    },
+    {
+      direction: '../../assets/certificates/JAVASCRIPT Certificate.png',
+      title: 'JavaScript Certificate',
+      institution: 'Mind Luster'
+    },
+  ];  
+
   constructor(
     private router:Router
   ) {}
 
-  experience_call= 'jobs'
+  experience_call= 'jobs';
   graphic: string = 'front';
+  learn: string = 'studies';
+
+  changeLearn(type: string) {
+    this.learn = type;
+  }
 
   experience_jobs(){
     this.experience_call = 'jobs'
