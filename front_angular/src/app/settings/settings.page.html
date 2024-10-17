@@ -1,15 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>settings page</ion-title>
+    <ion-title>settings</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-item>
-    <ion-label>Dark mode</ion-label>
-    <ion-toggle slot="end" (ionChange)="toggleTheme($event)"></ion-toggle>
-    <ion-icon [name]="iconName" slot="end"></ion-icon>
-  </ion-item>
+<ion-content [fullscreen]="true">  
+  <div id="content">
+    <ion-card>
+      <ion-label>
+        <ion-icon [name]="iconName" (click)="toggleTheme()"></ion-icon>
+      </ion-label>
+    </ion-card>
+  </div>
 </ion-content>
 
 <ion-footer>

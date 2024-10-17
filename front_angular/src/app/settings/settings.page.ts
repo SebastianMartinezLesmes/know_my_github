@@ -25,15 +25,9 @@ export class SettingsPage implements OnInit {
   goGitHub() { this.router.navigate(['./git-hub']); }
   goHome() { this.router.navigate(['./home']); }
 
-  toggleTheme(event: CustomEvent) {
-    if (event.detail.checked) {
-      document.body.classList.add('dark-theme');
-      localStorage.setItem('dark-theme', 'true');
-      this.iconName = 'moon';
-    } else {
-      document.body.classList.remove('dark-theme');
-      localStorage.setItem('dark-theme', 'false');
-      this.iconName = 'sunny';
-    }
-  }
+  toggleTheme() {
+    const isDarkMode = document.body.classList.toggle('dark-theme');
+    localStorage.setItem('dark-theme', isDarkMode ? 'true' : 'false');
+    this.iconName = isDarkMode ? 'moon' : 'sunny';
+  }  
 }
