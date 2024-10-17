@@ -52,8 +52,8 @@ export class GitHubPage implements OnInit {
     this.infoRepo = rep;
   }
 
-  goLinkedin() {
-    this.router.navigate(['./linkedin']);
+  goSettings(){
+    this.router.navigate(['./settings'])
   }
 
   goHome() {

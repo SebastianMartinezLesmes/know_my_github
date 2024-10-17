@@ -1,24 +1,15 @@
-/* Pie de página */
-ion-footer {
-    background-color: #f8f9fa;
-    padding: 2rem;
-}
-
 #footer-icons {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     gap: 1rem;
+    ion-icon {
+        font-size: 2.5rem;
+        color: white;
+    }
 }
 
-#footer-icons ion-icon {
-    font-size: 2.5rem;
-    color: white;
-}
-
-/* Media Queries */
 @media (max-width: 768px) {
-
     #footer-icons {
         display: flex;
         flex-direction: row;

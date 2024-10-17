@@ -117,8 +117,8 @@ export class HomePage {
     this.router.navigate(['./git-hub'])
   }
 
-  goLinkedin(){
-    this.router.navigate(['./linkedin'])
+  goSettings(){
+    this.router.navigate(['./settings'])
   }
 
 }

@@ -10,13 +10,13 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  },  {
-    path: 'git-hub',
-    loadChildren: () => import('./git-hub/git-hub.module').then( m => m.GitHubPageModule)
   },
   {
-    path: 'linkedin',
-    loadChildren: () => import('./linkedin/linkedin.module').then( m => m.LinkedinPageModule)
+    path: 'git-hub',
+    loadChildren: () => import('./git-hub/git-hub.module').then( m => m.GitHubPageModule)
+  },  {
+    path: 'settings',
+    loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
   },
 
 ];

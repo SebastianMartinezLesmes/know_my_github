@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LinkedinPageRoutingModule } from './linkedin-routing.module';
+import { SettingsPageRoutingModule } from './settings-routing.module';
 
-import { LinkedinPage } from './linkedin.page';
+import { SettingsPage } from './settings.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LinkedinPageRoutingModule
+    SettingsPageRoutingModule
   ],
-  declarations: [LinkedinPage]
+  declarations: [SettingsPage]
 })
-export class LinkedinPageModule {}
+export class SettingsPageModule {}
