@@ -39,8 +39,10 @@
 
 @media (max-width: 768px) {
     #content{
-        width: 50%;
-        height: 30%;
+        ion-card{
+            width: 50%;
+            height: 30%;
+        }
     }
     #footer-icons {
         display: flex;
