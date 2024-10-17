@@ -52,7 +52,7 @@
               <ion-card *ngFor="let cer of certificates">
                 <img [src]="cer.direction" [alt]="cer.title">
                 <ion-card-header>
-                  <ion-card-title>{{ cer.title }}</ion-card-title>
+                  <h4>{{ cer.title }}</h4>
                   <ion-card-subtitle>{{ cer.institution }}</ion-card-subtitle>
                 </ion-card-header>
               </ion-card>
@@ -128,11 +128,11 @@
     
 </ion-content>
 
-<ion-item>
+<ion-footer>
   <ion-toolbar>
     <div id="footer-icons">
       <ion-icon name="logo-github" (click)="goGitHub()"></ion-icon>
       <ion-icon name="settings-outline" (click)="goSettings()"></ion-icon>
     </div>
   </ion-toolbar>
-</ion-item>
+</ion-footer>
