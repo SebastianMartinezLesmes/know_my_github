@@ -23,9 +23,8 @@ export class CircleDataComponent implements OnInit, AfterViewInit {
         const myChart = echarts.init(chartDom);
         const option = {
             title: {
-                text: 'Languages Usage',
-                // subtext: 'Percentage of Code in Each Language',
-                left: 'center',
+                text: 'Languages',
+                left: 'right',
                 top: 'top',
                 textStyle: {
                     fontSize: 20,
@@ -55,7 +54,7 @@ export class CircleDataComponent implements OnInit, AfterViewInit {
                 {
                     name: 'Languages',
                     type: 'pie',
-                    radius: ['40%', '70%'], // Inner and outer radius
+                    radius: ['40%', '70%'],
                     avoidLabelOverlap: false,
                     label: {
                         show: true,
